@@ -1376,7 +1376,7 @@
 <hr>
 <p>本文讨论<code>主备镜像</code>形式的灾备。</p>
 <h2 id="流程-主备镜像"><a href="#流程-主备镜像" class="headerlink" title="流程(主备镜像)"></a>流程(主备镜像)</h2><p>灾备对应的流程如下:</p>
-<p><img src="disaster_recovery/disaster_recovery.png" alt="disaster_recovery.png"></p>
+<p><img src="/2016/11/02/disaster_recovery/disaster_recovery.png" alt="disaster_recovery.png"></p>
 <h2 id="关键点"><a href="#关键点" class="headerlink" title="关键点"></a>关键点</h2><h3 id="数据灾备"><a href="#数据灾备" class="headerlink" title="数据灾备"></a>数据灾备</h3><p>灾备的重点在于数据，即灾难发生后可以确保用户原有的数据不会丢失或者遭到破坏。解决方案是依赖基于网络的数据复制工具，实现生产中心和灾备中心之间的异步/同步的数据传输</p>
 <p>数据灾备包括DB, rmq, cache的灾备</p>
 <ul>
@@ -1555,9 +1555,9 @@
       
         
           
-            <h2 id="补偿型"><a href="#补偿型" class="headerlink" title="补偿型"></a>补偿型</h2><p><img src="distributed-transaction-in-soa/1_tcc.jpg" alt="tcc"></p>
-<h2 id="异步确保型"><a href="#异步确保型" class="headerlink" title="异步确保型"></a>异步确保型</h2><p><img src="distributed-transaction-in-soa/2_mq.jpg" alt="mq"></p>
-<h2 id="最大努力通知型"><a href="#最大努力通知型" class="headerlink" title="最大努力通知型"></a>最大努力通知型</h2><p><img src="distributed-transaction-in-soa/3_notice.jpg" alt="notice"></p>
+            <h2 id="补偿型"><a href="#补偿型" class="headerlink" title="补偿型"></a>补偿型</h2><p><img src="/2016/10/25/distributed-transaction-in-soa/1_tcc.jpg" alt="tcc"></p>
+<h2 id="异步确保型"><a href="#异步确保型" class="headerlink" title="异步确保型"></a>异步确保型</h2><p><img src="/2016/10/25/distributed-transaction-in-soa/2_mq.jpg" alt="mq"></p>
+<h2 id="最大努力通知型"><a href="#最大努力通知型" class="headerlink" title="最大努力通知型"></a>最大努力通知型</h2><p><img src="/2016/10/25/distributed-transaction-in-soa/3_notice.jpg" alt="notice"></p>
 
           
         
@@ -1918,7 +1918,7 @@
 <li>记录操作状态，轮询失败状态补偿</li>
 </ul>
 <p>为了保证消息的高可用，将发送的消息同时存储到另外一种介质。出于性能和吞吐量上的考虑，此处考虑选择使用redis。rabbitmq发送消息时，同时保存对应routing_key的订单号到redis对应的zset中，并提供接口在rabbitmq异常时查询一定时间段内对应routing_key的订单号</p>
-<p><img src="mq_back_up/mq_back_up.png" alt="mq_back_up.png"></p>
+<p><img src="/2016/09/29/mq_back_up/mq_back_up.png" alt="mq_back_up.png"></p>
 <h2 id="存储方案"><a href="#存储方案" class="headerlink" title="存储方案"></a>存储方案</h2><p>由于发送的消息均有一个routing_key(订单状态转变时发送对应routing_key的订单)，所以在存储时应该将消息以routing_key分类存放。考虑将order_id存储在以routing_key为key的zset中，同时以创建时间的时间戳作为zset的score，方便获取指定时间内的订单号</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zadd(routing_key, int(time.time()), order_id)</div></pre></td></tr></table></figure>
 <h2 id="容量计算"><a href="#容量计算" class="headerlink" title="容量计算"></a>容量计算</h2><p>由于每个订单的生命周期发出的消息平均约为5条，如订单的峰值TPS为1000，订单号为18位，需要提供查询半个小时之内的消息，根据解决方案可知需要至少存储1小时的内容，则需要的内存为</p>
@@ -2183,7 +2183,7 @@
 <li>中间件 和 基础服务 的性能主要通过对应的指标监控，观察对应的<code>cpu</code>,<code>memory</code>,<code>Network</code>,<code>IO</code>,<code>TCP</code>等</li>
 <li>操作系统级别的性能分析可以参考<a href="http://www.brendangregg.com/linuxperf.html" target="_blank" rel="external">Linux Performance</a></li>
 </ul>
-<p><img src="load-testing-and-performance/linux_observability_tools.png" alt="linux_observability_tools"></p>
+<p><img src="/2016/09/21/load-testing-and-performance/linux_observability_tools.png" alt="linux_observability_tools"></p>
 
           
         
@@ -2347,7 +2347,7 @@
           
             <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="关于A-B测试"><a href="#关于A-B测试" class="headerlink" title="关于A/B测试"></a>关于A/B测试</h3><p>所谓A/B测试，简单来说，就是为同一个目标制定两个方案。让一部分流量使用A方案，另一部分流量使用B方案。并对比两个方案的最终运营数据，看哪个方案更符合设计目标。</p>
 <p>A/B测试的大致流程如下:</p>
-<p><img src="ab-testing/ABTesting.jpg" alt="ABTesting.jpg"></p>
+<p><img src="/2016/09/05/ab-testing/ABTesting.jpg" alt="ABTesting.jpg"></p>
 <p>从图中可以看出A/B测试的四个关键角色:</p>
 <ul>
 <li>客户端(Client)</li>

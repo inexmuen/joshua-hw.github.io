@@ -92,13 +92,13 @@
 <meta property="og:site_name" content="Joshua">
 <meta property="og:description" content="Design For FailureDesign For Failure的核心思想在于: 容忍错误，快速恢复，将failure当做普通事件处理。
 当应用构建在云服务(cloud)上，这个概念更多被提及(Design For Failure Is Key To Success In The Cloud)。因为相比普通线上环境，云设施的复杂度更大，同时也导致了稳定性以及健壮性的复杂，因此Failure">
-<meta property="og:image" content="http://joshua-hw.github.io/mq_back_up/mq_back_up.png">
+<meta property="og:image" content="http://joshua-hw.github.io/2016/09/29/mq_back_up/mq_back_up.png">
 <meta property="og:updated_time" content="2017-01-26T06:04:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="消息补偿">
 <meta name="twitter:description" content="Design For FailureDesign For Failure的核心思想在于: 容忍错误，快速恢复，将failure当做普通事件处理。
 当应用构建在云服务(cloud)上，这个概念更多被提及(Design For Failure Is Key To Success In The Cloud)。因为相比普通线上环境，云设施的复杂度更大，同时也导致了稳定性以及健壮性的复杂，因此Failure">
-<meta name="twitter:image" content="http://joshua-hw.github.io/mq_back_up/mq_back_up.png">
+<meta name="twitter:image" content="http://joshua-hw.github.io/2016/09/29/mq_back_up/mq_back_up.png">
 
 
 
@@ -407,7 +407,7 @@
 <li>记录操作状态，轮询失败状态补偿</li>
 </ul>
 <p>为了保证消息的高可用，将发送的消息同时存储到另外一种介质。出于性能和吞吐量上的考虑，此处考虑选择使用redis。rabbitmq发送消息时，同时保存对应routing_key的订单号到redis对应的zset中，并提供接口在rabbitmq异常时查询一定时间段内对应routing_key的订单号</p>
-<p><img src="mq_back_up/mq_back_up.png" alt="mq_back_up.png"></p>
+<p><img src="/2016/09/29/mq_back_up/mq_back_up.png" alt="mq_back_up.png"></p>
 <h2 id="存储方案"><a href="#存储方案" class="headerlink" title="存储方案"></a>存储方案</h2><p>由于发送的消息均有一个routing_key(订单状态转变时发送对应routing_key的订单)，所以在存储时应该将消息以routing_key分类存放。考虑将order_id存储在以routing_key为key的zset中，同时以创建时间的时间戳作为zset的score，方便获取指定时间内的订单号</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zadd(routing_key, int(time.time()), order_id)</div></pre></td></tr></table></figure>
 <h2 id="容量计算"><a href="#容量计算" class="headerlink" title="容量计算"></a>容量计算</h2><p>由于每个订单的生命周期发出的消息平均约为5条，如订单的峰值TPS为1000，订单号为18位，需要提供查询半个小时之内的消息，根据解决方案可知需要至少存储1小时的内容，则需要的内存为</p>
