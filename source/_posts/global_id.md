@@ -1,7 +1,7 @@
 ---
 title: 分布式系统中的全局唯一ID
 date: 2017-01-20 17:00:00
-author: Fanteathy
+author: Joshua
 tags: arch
 categories: arch
 ---

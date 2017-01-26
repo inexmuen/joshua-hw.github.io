@@ -1,7 +1,7 @@
 ---
 title: 技术人员招聘指南
 date: 2016-11-14 20:20:00
-author: Fanteathy
+author: Joshua
 tags: management
 categories: management
 ---

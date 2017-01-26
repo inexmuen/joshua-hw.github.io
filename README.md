@@ -1,4 +1,4 @@
-# Fanteathy's Blog
+# Joshua's Blog
 
 ## work flow
 

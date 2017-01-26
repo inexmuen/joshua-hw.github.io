@@ -1,7 +1,7 @@
 ---
 title: 我的vim
 date: 2016-12-15 22:00:00
-author: Fanteathy
+author: Joshua
 tags: tool
 categories: tool
 ---
@@ -21,7 +21,7 @@ categories: tool
 
 ![screenshot.png](my_vim/screenshot.png)
 
-对应的repo为: [https://github.com/fanteathy/my_vim](https://github.com/fanteathy/my_vim)
+对应的repo为: [https://github.com/joshua-hw/my_vim](https://github.com/joshua-hw/my_vim)
 
 ## 配置
 

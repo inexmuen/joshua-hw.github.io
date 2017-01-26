@@ -1,7 +1,7 @@
 ---
 title: 数据库sharding
 date: 2017-01-21 15:00:00
-author: Fanteathy
+author: Joshua
 tags: arch
 categories: arch
 ---
@@ -52,11 +52,11 @@ categories: arch
 
 ### 全局主键
 
-一旦数据库被切分到多个物理结点上，我们将不能再依赖数据库自身的主键生成机制。此时可能需要一个全局主键生成机制，可以参考[分布式系统中的全局唯一ID](https://fanteathy.github.io/2017/01/20/global_id/)
+一旦数据库被切分到多个物理结点上，我们将不能再依赖数据库自身的主键生成机制。此时可能需要一个全局主键生成机制，可以参考[分布式系统中的全局唯一ID](https://joshua-hw.github.io/2017/01/20/global_id/)
 
 ### 引入分布式事务的问题
 
-一旦数据被切分到多个server中，势必会引入跨库事务的问题。此时可以考虑将一个跨多个数据库的分布式事务分拆成多个仅处于单个数据库上面的小事务，并通过应用程序来总控各个小事务。或者考虑一下[分布式事务的解决方案](https://fanteathy.github.io/2016/10/25/distributed-transaction-in-soa/)
+一旦数据被切分到多个server中，势必会引入跨库事务的问题。此时可以考虑将一个跨多个数据库的分布式事务分拆成多个仅处于单个数据库上面的小事务，并通过应用程序来总控各个小事务。或者考虑一下[分布式事务的解决方案](https://joshua-hw.github.io/2016/10/25/distributed-transaction-in-soa/)
 
 ### 跨节点join的问题
 

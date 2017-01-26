@@ -1,7 +1,7 @@
 ---
 title: RPC(远程过程调用)和MQ(消息队列)
 date: 2017-01-23 12:00:00
-author: Fanteathy
+author: Joshua
 tags: arch
 categories: arch
 ---
