@@ -96,7 +96,7 @@
 关于sharding更多的知识请参考:  数据库分库分表(sharding)系列
 分类和维度分类垂直sharding以表为单位，把不同的表分散到不同的数据库或主机上。按领域模型，将业务紧密，表间关联密切的表划分在一起。特点是规则简单，实施方便，适合业务之间耦合度低的系统。
 水平s">
-<meta property="og:image" content="http://joshua-hw.github.io/about_sharding/sharding.jpg">
+<meta property="og:image" content="http://joshua-hw.github.io/2017/01/21/about_sharding/sharding.jpg">
 <meta property="og:updated_time" content="2017-01-26T06:04:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库sharding">
@@ -104,7 +104,7 @@
 关于sharding更多的知识请参考:  数据库分库分表(sharding)系列
 分类和维度分类垂直sharding以表为单位，把不同的表分散到不同的数据库或主机上。按领域模型，将业务紧密，表间关联密切的表划分在一起。特点是规则简单，实施方便，适合业务之间耦合度低的系统。
 水平s">
-<meta name="twitter:image" content="http://joshua-hw.github.io/about_sharding/sharding.jpg">
+<meta name="twitter:image" content="http://joshua-hw.github.io/2017/01/21/about_sharding/sharding.jpg">
 
 
 
@@ -409,7 +409,7 @@
 <li>水平维度: 电商中的两个最重要相关业务方为买家和卖家，最重要的业务为订单，所以可以依据买家和卖家信息生成订单，同时基于买家/卖家维度对相关表进行水平拆分</li>
 </ul>
 <h2 id="sharding实现层面"><a href="#sharding实现层面" class="headerlink" title="sharding实现层面"></a>sharding实现层面</h2><p>从一个系统的程序架构层面来看，sharding逻辑可以在DAO层、JDBC API层、介于DAO与JDBC之间的Spring数据访问封装层(各种spring的template)以及介于应用服务器与数据库之间的sharding代理服务器四个层面上实现。</p>
-<p><img src="about_sharding/sharding.jpg" alt="sharding.jpg"></p>
+<p><img src="/2017/01/21/about_sharding/sharding.jpg" alt="sharding.jpg"></p>
 <h2 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h2><p>随着业务的发展，一般都会有一个从非sharding向sharding迁移的过程，为了保证迁移过程中数据的准确性和迁移失败的可回退，迁移过程一般分为三个阶段:</p>
 <ul>
 <li>双写读非sharding(此时需要校验非sharding和sharding库的数据一致性)</li>
