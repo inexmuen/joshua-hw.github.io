@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Fanteathy
+title: Joshua
 subtitle:
 description:
-author: fanteathy
+author: joshua
 language: zh-Hans
 timezone: Asia/Shanghai
 avatar: https://avatars0.githubusercontent.com/u/2180875?v=3&s=460
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://fanteathy.github.io
+url: http://joshua-hw.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -76,5 +76,5 @@ baidu_analytics: 4a5f97b0ff5f7149cd40cf481a7f9ae4
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:fanteathy/fanteathy.github.io.git
+  repo: git@github.com:joshua-hw/joshua-hw.github.io.git
   branch: master
