@@ -5,11 +5,11 @@
 # Site
 title: Joshua's Blog
 subtitle:
-description:
-author: joshua
+description: 世界很大,未来很长!
+author: Joshua
 language: zh-Hans
 timezone: Asia/Shanghai
-avatar: https://avatars0.githubusercontent.com/u/2180875?v=3&s=460
+avatar: https://avatars0.githubusercontent.com/u/2180875?v=3&s=400
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
