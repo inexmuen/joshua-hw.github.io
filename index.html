@@ -417,7 +417,64 @@
       
         
           
-            <h2 id="RPC框架"><a href="#RPC框架" class="headerlink" title="RPC框架"></a>RPC框架</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><h3 id="IO模型"><a href="#IO模型" class="headerlink" title="IO模型"></a>IO模型</h3><h4 id="多路复用IO"><a href="#多路复用IO" class="headerlink" title="多路复用IO"></a>多路复用IO</h4><h4 id="异步IO"><a href="#异步IO" class="headerlink" title="异步IO"></a>异步IO</h4><h3 id="传输协议"><a href="#传输协议" class="headerlink" title="传输协议"></a>传输协议</h3><h4 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h4><h5 id="thrift"><a href="#thrift" class="headerlink" title="thrift"></a>thrift</h5><h5 id="Avro"><a href="#Avro" class="headerlink" title="Avro"></a>Avro</h5><h5 id="protobuf"><a href="#protobuf" class="headerlink" title="protobuf"></a>protobuf</h5><h5 id="各语言内置序列化-反序列化机制"><a href="#各语言内置序列化-反序列化机制" class="headerlink" title="各语言内置序列化/反序列化机制"></a>各语言内置序列化/反序列化机制</h5><h4 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h4><h5 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h5><h5 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h5><h3 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h3><h2 id="服务治理相关"><a href="#服务治理相关" class="headerlink" title="服务治理相关"></a>服务治理相关</h2><h3 id="Service-Registry"><a href="#Service-Registry" class="headerlink" title="Service Registry"></a>Service Registry</h3><h4 id="zookeeper"><a href="#zookeeper" class="headerlink" title="zookeeper"></a>zookeeper</h4><h4 id="heartbeat"><a href="#heartbeat" class="headerlink" title="heartbeat"></a>heartbeat</h4><h3 id="LB"><a href="#LB" class="headerlink" title="LB"></a>LB</h3><h3 id="Config-Center"><a href="#Config-Center" class="headerlink" title="Config Center"></a>Config Center</h3><h3 id="CI-CD"><a href="#CI-CD" class="headerlink" title="CI/CD"></a>CI/CD</h3><h3 id="Log"><a href="#Log" class="headerlink" title="Log"></a>Log</h3><h3 id="Metrics"><a href="#Metrics" class="headerlink" title="Metrics"></a>Metrics</h3><h3 id="Monitoring-amp-Alerting"><a href="#Monitoring-amp-Alerting" class="headerlink" title="Monitoring &amp; Alerting"></a>Monitoring &amp; Alerting</h3><h3 id="Trace"><a href="#Trace" class="headerlink" title="Trace"></a>Trace</h3><h3 id="CircuitBreaker-amp-Downgrade"><a href="#CircuitBreaker-amp-Downgrade" class="headerlink" title="CircuitBreaker &amp; Downgrade"></a>CircuitBreaker &amp; Downgrade</h3>
+            <h2 id="RPC框架"><a href="#RPC框架" class="headerlink" title="RPC框架"></a>RPC框架</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p><code>RPC</code>，即远程过程调用，说得通俗一点就是：调用远程计算机上的服务，就像调用本地服务一样。RPC框架是SOA架构的重要基石。</p>
+<h3 id="IO模型"><a href="#IO模型" class="headerlink" title="IO模型"></a>IO模型</h3><p>衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选择，至关重要。不同的网络IO模型，在高并发的状态下，处理性能上会有很大的差别。如Thrift提供支持以下IO模型的server实现:</p>
+<ul>
+<li>多线程阻塞式IO服务模型 - <code>TThreadPoolServer</code></li>
+<li>非阻塞式IO服务模型 - <code>TNonblockingServer</code></li>
+<li>半同步半异步的服务模型 - <code>THsHaServer</code></li>
+<li>多线程半同步半异步的服务模型 - <code>TThreadedSelectorServer</code></li>
+</ul>
+<h3 id="Serialize-amp-Unserialize"><a href="#Serialize-amp-Unserialize" class="headerlink" title="Serialize &amp; Unserialize"></a>Serialize &amp; Unserialize</h3><p>另外一个衡量RPC框架性能的标准，就是传输协议。通讯协议约定了RPC请求中<code>client</code>和<code>server</code>的通讯方式，序列化和反序列化属于通讯协议的一部分，是设计RPC框架时一个重要的考虑因素。在选择序列化/反序列化方式时通常需要考虑以下几个方面:</p>
+<ul>
+<li>通用性<ul>
+<li>技术层面: 序列化协议是否支持跨平台、跨语言。</li>
+<li>流行程度: 这通常意味着学习成本的高低和是否有足够的社区支持 </li>
+</ul>
+</li>
+<li>强健性<ul>
+<li>协议的强健性依赖于大量而全面的测试，对于致力于提供高质量服务的系统，采用处于测试阶段的序列化协议会带来很高的风险。</li>
+</ul>
+</li>
+<li>可读性<ul>
+<li>序列化和反序列化的数据正确性和业务正确性的调试往往需要很长的时间，良好的调试机制会大大提高开发效率。这方面<code>文本流</code>比<code>二进制流</code>有明显的优点。</li>
+</ul>
+</li>
+<li>性能      <ul>
+<li>主要在于<code>空间开销</code>(传输的数据量)和<code>时间开销</code>(序列化和反序列化时的CPU消耗)</li>
+</ul>
+</li>
+<li>可扩展性<ul>
+<li>好的序列化协议应该对于业务的扩展支持友好</li>
+</ul>
+</li>
+</ul>
+<p>主要的序列化/反序列化技术选型有以下几种:   </p>
+<h4 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h4><h5 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h5><p>XML是一种常用的序列化和反序列化协议，具有跨机器，跨语言等优点。webservice就完全基于XML通讯。可读性强，但是性能较差。异构系统，open api类型的应用中常用。</p>
+<h5 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h5><p>将对象转换成JSON结构化字符串。在http协议下，这是常用的方案，具备Javascript的先天性支持。JSON可读性强，利于调试和排错，但是性能稍差。</p>
+<h4 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h4><h5 id="thrift"><a href="#thrift" class="headerlink" title="thrift"></a>thrift</h5><p>Thrift并不仅仅是序列化协议，而是一个RPC框架。Thrift在空间开销和解析性能上有了比较大的提升。Thrift框架本身并没有透出序列化和反序列化接口，这导致其很难和其他传输层协议共同使用</p>
+<h5 id="Avro"><a href="#Avro" class="headerlink" title="Avro"></a>Avro</h5><p>Avro在大数据存储（RPC数据交换，本地存储）时比较常用</p>
+<h5 id="protobuf"><a href="#protobuf" class="headerlink" title="protobuf"></a>protobuf</h5><p>Protobuf是一个纯粹的展示层协议，可以和各种传输层协议一起使用。它的主要问题在于其所支持的语言相对较少，另外由于没有绑定的标准底层传输层协议，在公司间进行传输层协议的调试工作相对麻烦。</p>
+<h5 id="各语言内置序列化-反序列化机制"><a href="#各语言内置序列化-反序列化机制" class="headerlink" title="各语言内置序列化/反序列化机制"></a>各语言内置序列化/反序列化机制</h5><p>使用python pickle, <a href="https://github.com/jobbole/awesome-java-cn#serialization" target="_blank" rel="external">java序列化库</a>等</p>
+<blockquote>
+<p>更多关于序列化和反序列化技术的对比，请参考: <a href="http://www.infoq.com/cn/articles/serialization-and-deserialization" target="_blank" rel="external">序列化和反序列化</a></p>
+</blockquote>
+<h3 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h3><p>笔者遇到的RPC框架的技术组合有以下几种:</p>
+<ul>
+<li><code>Java: protobuf + netty</code></li>
+<li><code>Java: json + netty</code></li>
+<li><code>Python: thrift + thriftpy + thrift_connector + gunicorn</code></li>
+</ul>
+<h2 id="服务治理"><a href="#服务治理" class="headerlink" title="服务治理"></a>服务治理</h2><p>服务治理涵盖的内容很多，以下是服务治理的一些关键技术点</p>
+<h3 id="Service-Registry"><a href="#Service-Registry" class="headerlink" title="Service Registry"></a>Service Registry</h3><p>服务注册中心，是服务治理最重要的组件之一。本质上是为了解耦服务提供者和服务消费者。可以基于<code>ZooKeeper</code>或者<code>Etcd</code>实现一套服务注册机制。</p>
+<h3 id="LB"><a href="#LB" class="headerlink" title="LB"></a>LB</h3><p>有了服务注册中心后，就可以在client拿到服务全部的列表，则对应的负载均衡策略在RPC框架的client里面做就可以了。这避免了haproxy配置复杂和不能热加载的问题。</p>
+<h3 id="Config-Center"><a href="#Config-Center" class="headerlink" title="Config Center"></a>Config Center</h3><p>同样可以基于zookeeper实现服务不同环境(开发，测试，预发布，生产)的配置功能</p>
+<h3 id="CI-CD"><a href="#CI-CD" class="headerlink" title="CI/CD"></a>CI/CD</h3><p>可以基于<code>jenkins</code>和<code>docker</code>实现<a href="https://www.docker.com/use-cases/cicd" target="_blank" rel="external">持续集成</a>。服务的发布(灰度发布)同时需要一个完善的CMDB系统的存在</p>
+<h3 id="Log"><a href="#Log" class="headerlink" title="Log"></a>Log</h3><p>ELK是比较成熟的日志分析技术栈</p>
+<h3 id="Monitoring-amp-Alerting"><a href="#Monitoring-amp-Alerting" class="headerlink" title="Monitoring &amp; Alerting"></a>Monitoring &amp; Alerting</h3><p>关于监控和报警，请关注笔者的另外一篇文章: <a href="https://joshua-hw.github.io/2017/01/24/monitoring_and_alerting/">服务监控和报警</a></p>
+<h3 id="Trace"><a href="#Trace" class="headerlink" title="Trace"></a>Trace</h3><p>能够得到每一个调用的<code>调用链路</code>对于服务的分析有很大的辅助作用。trace系统的实现可以参考<a href="http://www.slideshare.net/terryice/eagleeye-with-taobaojavaone" target="_blank" rel="external">鹰眼下的淘宝_EagleEye with Taobao</a></p>
+<h3 id="限流，降级和熔断"><a href="#限流，降级和熔断" class="headerlink" title="限流，降级和熔断"></a>限流，降级和熔断</h3><p>这三者都是服务自我保护的利器，均可以依赖于服务注册及配置中心实现。</p>
+
           
         
       
