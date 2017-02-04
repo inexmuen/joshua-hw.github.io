@@ -22,7 +22,7 @@ categories: arch
 - 半同步半异步的服务模型 - `THsHaServer`
 - 多线程半同步半异步的服务模型 - `TThreadedSelectorServer`
 
-### Serialize & Unserialize
+### Serialization & Deserialization
 
 另外一个衡量RPC框架性能的标准，就是传输协议。通讯协议约定了RPC请求中`client`和`server`的通讯方式，序列化和反序列化属于通讯协议的一部分，是设计RPC框架时一个重要的考虑因素。在选择序列化/反序列化方式时通常需要考虑以下几个方面:
 
