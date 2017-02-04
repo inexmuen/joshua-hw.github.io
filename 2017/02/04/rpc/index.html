@@ -84,25 +84,25 @@
 
 
 
-<meta name="description" content="RPC框架DefinitionRPC，即远程过程调用，说得通俗一点就是：调用远程计算机上的服务，就像调用本地服务一样。RPC框架是SOA架构的重要基石。
-IO Patterns衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选择，至关重要。不同的网络IO模型，在高并发的状态下，处理性能上会有很大的差别。如Thrift提供支持以下IO模型的server实现:
+<meta name="description" content="RPC框架概念RPC，即远程过程调用，说得通俗一点就是：调用远程计算机上的服务，就像调用本地服务一样。RPC框架是SOA架构的重要基石。
+IO模型衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选择，至关重要。不同的网络IO模型，在高并发的状态下，处理性能上会有很大的差别。如Thrift提供支持以下IO模型的server实现:
 
-多线程阻塞式IO服务模型 -">
+多线程阻塞式IO服务模型 - TThreadPoolServ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RPC框架 & 服务治理">
 <meta property="og:url" content="http://joshua-hw.github.io/2017/02/04/rpc/index.html">
 <meta property="og:site_name" content="Joshua's Blog">
-<meta property="og:description" content="RPC框架DefinitionRPC，即远程过程调用，说得通俗一点就是：调用远程计算机上的服务，就像调用本地服务一样。RPC框架是SOA架构的重要基石。
-IO Patterns衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选择，至关重要。不同的网络IO模型，在高并发的状态下，处理性能上会有很大的差别。如Thrift提供支持以下IO模型的server实现:
+<meta property="og:description" content="RPC框架概念RPC，即远程过程调用，说得通俗一点就是：调用远程计算机上的服务，就像调用本地服务一样。RPC框架是SOA架构的重要基石。
+IO模型衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选择，至关重要。不同的网络IO模型，在高并发的状态下，处理性能上会有很大的差别。如Thrift提供支持以下IO模型的server实现:
 
-多线程阻塞式IO服务模型 -">
-<meta property="og:updated_time" content="2017-02-04T08:28:36.000Z">
+多线程阻塞式IO服务模型 - TThreadPoolServ">
+<meta property="og:updated_time" content="2017-02-04T08:30:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RPC框架 & 服务治理">
-<meta name="twitter:description" content="RPC框架DefinitionRPC，即远程过程调用，说得通俗一点就是：调用远程计算机上的服务，就像调用本地服务一样。RPC框架是SOA架构的重要基石。
-IO Patterns衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选择，至关重要。不同的网络IO模型，在高并发的状态下，处理性能上会有很大的差别。如Thrift提供支持以下IO模型的server实现:
+<meta name="twitter:description" content="RPC框架概念RPC，即远程过程调用，说得通俗一点就是：调用远程计算机上的服务，就像调用本地服务一样。RPC框架是SOA架构的重要基石。
+IO模型衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选择，至关重要。不同的网络IO模型，在高并发的状态下，处理性能上会有很大的差别。如Thrift提供支持以下IO模型的server实现:
 
-多线程阻塞式IO服务模型 -">
+多线程阻塞式IO服务模型 - TThreadPoolServ">
 
 
 
@@ -420,8 +420,8 @@ IO Patterns衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的�
       
 
       
-        <h2 id="RPC框架"><a href="#RPC框架" class="headerlink" title="RPC框架"></a>RPC框架</h2><h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><p><code>RPC</code>，即远程过程调用，说得通俗一点就是：调用远程计算机上的服务，就像调用本地服务一样。RPC框架是SOA架构的重要基石。</p>
-<h3 id="IO-Patterns"><a href="#IO-Patterns" class="headerlink" title="IO Patterns"></a>IO Patterns</h3><p>衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选择，至关重要。不同的网络IO模型，在高并发的状态下，处理性能上会有很大的差别。如Thrift提供支持以下IO模型的server实现:</p>
+        <h2 id="RPC框架"><a href="#RPC框架" class="headerlink" title="RPC框架"></a>RPC框架</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p><code>RPC</code>，即远程过程调用，说得通俗一点就是：调用远程计算机上的服务，就像调用本地服务一样。RPC框架是SOA架构的重要基石。</p>
+<h3 id="IO模型"><a href="#IO模型" class="headerlink" title="IO模型"></a>IO模型</h3><p>衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选择，至关重要。不同的网络IO模型，在高并发的状态下，处理性能上会有很大的差别。如Thrift提供支持以下IO模型的server实现:</p>
 <ul>
 <li>多线程阻塞式IO服务模型 - <code>TThreadPoolServer</code></li>
 <li>非阻塞式IO服务模型 - <code>TNonblockingServer</code></li>
@@ -695,7 +695,7 @@ IO Patterns衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RPC框架"><span class="nav-number">1.</span> <span class="nav-text">RPC框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition"><span class="nav-number">1.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IO-Patterns"><span class="nav-number">1.2.</span> <span class="nav-text">IO Patterns</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Serialize-amp-Unserialize"><span class="nav-number">1.3.</span> <span class="nav-text">Serialize & Unserialize</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP"><span class="nav-number">1.3.1.</span> <span class="nav-text">HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#XML"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">XML</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JSON"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">JSON</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP"><span class="nav-number">1.3.2.</span> <span class="nav-text">TCP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#thrift"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">thrift</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Avro"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">Avro</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#protobuf"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">protobuf</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#各语言内置序列化-反序列化机制"><span class="nav-number">1.3.2.4.</span> <span class="nav-text">各语言内置序列化/反序列化机制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#技术选型"><span class="nav-number">1.4.</span> <span class="nav-text">技术选型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务治理"><span class="nav-number">2.</span> <span class="nav-text">服务治理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Service-Registry"><span class="nav-number">2.1.</span> <span class="nav-text">Service Registry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LB"><span class="nav-number">2.2.</span> <span class="nav-text">LB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Config-Center"><span class="nav-number">2.3.</span> <span class="nav-text">Config Center</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CI-CD"><span class="nav-number">2.4.</span> <span class="nav-text">CI/CD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Log"><span class="nav-number">2.5.</span> <span class="nav-text">Log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Monitoring-amp-Alerting"><span class="nav-number">2.6.</span> <span class="nav-text">Monitoring & Alerting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trace"><span class="nav-number">2.7.</span> <span class="nav-text">Trace</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#限流，降级和熔断"><span class="nav-number">2.8.</span> <span class="nav-text">限流，降级和熔断</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RPC框架"><span class="nav-number">1.</span> <span class="nav-text">RPC框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IO模型"><span class="nav-number">1.2.</span> <span class="nav-text">IO模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Serialize-amp-Unserialize"><span class="nav-number">1.3.</span> <span class="nav-text">Serialize & Unserialize</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP"><span class="nav-number">1.3.1.</span> <span class="nav-text">HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#XML"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">XML</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JSON"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">JSON</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP"><span class="nav-number">1.3.2.</span> <span class="nav-text">TCP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#thrift"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">thrift</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Avro"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">Avro</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#protobuf"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">protobuf</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#各语言内置序列化-反序列化机制"><span class="nav-number">1.3.2.4.</span> <span class="nav-text">各语言内置序列化/反序列化机制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#技术选型"><span class="nav-number">1.4.</span> <span class="nav-text">技术选型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务治理"><span class="nav-number">2.</span> <span class="nav-text">服务治理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Service-Registry"><span class="nav-number">2.1.</span> <span class="nav-text">Service Registry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LB"><span class="nav-number">2.2.</span> <span class="nav-text">LB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Config-Center"><span class="nav-number">2.3.</span> <span class="nav-text">Config Center</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CI-CD"><span class="nav-number">2.4.</span> <span class="nav-text">CI/CD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Log"><span class="nav-number">2.5.</span> <span class="nav-text">Log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Monitoring-amp-Alerting"><span class="nav-number">2.6.</span> <span class="nav-text">Monitoring & Alerting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trace"><span class="nav-number">2.7.</span> <span class="nav-text">Trace</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#限流，降级和熔断"><span class="nav-number">2.8.</span> <span class="nav-text">限流，降级和熔断</span></a></li></ol></li></ol></div>
             
 
           </div>
