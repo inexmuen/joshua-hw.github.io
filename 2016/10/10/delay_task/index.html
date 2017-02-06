@@ -98,7 +98,7 @@ DB轮询。将task存储在DB中，并设置task的执">
 
 rabbitmq + dead letter exchange或者rabbitmq + exchange plugin: x-delayed-message。利用queue的x-message-ttl控制消息延时时间
 DB轮询。将task存储在DB中，并设置task的执">
-<meta property="og:updated_time" content="2017-01-26T14:04:32.000Z">
+<meta property="og:updated_time" content="2017-02-06T05:10:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="延时任务">
 <meta name="twitter:description" content="背景应用中都有延时任务的需求，需要任务在指定的时间之后执行，这里讨论一下延时任务的技术实现。
@@ -431,6 +431,7 @@ DB轮询。将task存储在DB中，并设置task的执">
 <li>rabbitmq存储task，consumer延时处理。consumer端sleep N秒。当N较大时，mq中可能会堆积大量消息</li>
 <li>使用beanstalkd, nsq等天生很好支持延时特性的queue，但是使用较少，社区缺少相应的技术支持</li>
 </ul>
+<a id="more"></a>
 <h2 id="dead-letter-exchange"><a href="#dead-letter-exchange" class="headerlink" title="dead letter exchange"></a>dead letter exchange</h2><p>此处介绍一下DLX的创建, DLX的整体流程如下:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">delay_exchange =&gt; delay_queue =&gt; biz_exchange =&gt; biz_queue</div></pre></td></tr></table></figure>
 <p>创建流程如下:</p>

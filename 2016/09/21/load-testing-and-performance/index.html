@@ -97,7 +97,7 @@
 性能测试的目标为公司交易的主链路，包括外卖平台,商户平台,开放平台,大物流,EOS订单业务,新支付,ERS餐厅业务等。
 测试基本过程框架测试团队创建测试用户，测试餐厅，使用测试框架(jmet">
 <meta property="og:image" content="http://joshua-hw.github.io/2016/09/21/load-testing-and-performance/linux_observability_tools.png">
-<meta property="og:updated_time" content="2017-01-26T14:04:32.000Z">
+<meta property="og:updated_time" content="2017-02-06T05:12:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="全链路性能测试 & 性能分析">
 <meta name="twitter:description" content="Best Ref: 性能调优攻略
@@ -432,6 +432,7 @@
 <li>物流特殊处理: 正常情况下，在订单确认之后，只要餐厅购买了配送服务，就会进入物流，不过物流加了一层控制，可以把这些订单过滤掉。目前平台有20k的餐厅，专门用来压测，这些压测订单的物流会忽略</li>
 </ul>
 <p>测试接口的调用，调用比率均通过分析对应服务集群的日志来确定。</p>
+<a id="more"></a>
 <h3 id="测试团队相关知识"><a href="#测试团队相关知识" class="headerlink" title="测试团队相关知识"></a>测试团队相关知识</h3><p><a href="http://wiki.ele.to:8090/pages/viewpage.action?pageId=20324754" target="_blank" rel="external">业务部门性能测试</a></p>
 <h2 id="测试准备"><a href="#测试准备" class="headerlink" title="测试准备"></a>测试准备</h2><p>测试前，noc会进行以下操作: 开店</p>
 <p>首页banner，皮肤，自动关店，hermes，base.hermes降级，支付mock开关打开</p>

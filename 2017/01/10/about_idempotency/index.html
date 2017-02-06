@@ -94,7 +94,7 @@
 <meta property="og:description" content="幂等方案可以保证幂等的操作1. 查询操作查询一次和查询多次，在数据不变的情况下，查询结果是一样的。在隔离级别为可重复读(mysql默认隔离级别)时，select是天然的幂等操作
 2. 删除操作删除操作也是幂等的，删除一次和多次删除结果相同，都是把数据删除。(注意可能返回结果不一样，删除的数据不存在，返回0；删除的数据多条，返回结果多个)
 3. 唯一索引唯一索引或唯一组合索引来防止提交重复数据，不过">
-<meta property="og:updated_time" content="2017-01-26T14:04:32.000Z">
+<meta property="og:updated_time" content="2017-02-06T05:08:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于幂等">
 <meta name="twitter:description" content="幂等方案可以保证幂等的操作1. 查询操作查询一次和查询多次，在数据不变的情况下，查询结果是一样的。在隔离级别为可重复读(mysql默认隔离级别)时，select是天然的幂等操作
@@ -422,6 +422,7 @@
 <h4 id="3-唯一索引"><a href="#3-唯一索引" class="headerlink" title="3. 唯一索引"></a>3. 唯一索引</h4><p>唯一索引或唯一组合索引来防止提交重复数据，不过对DB性能有影响</p>
 <h4 id="4-悲观锁"><a href="#4-悲观锁" class="headerlink" title="4. 悲观锁"></a>4. 悲观锁</h4><p>获取数据的时候加锁获取</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select * from table_xxx where id=&apos;xxx&apos; for update;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h4 id="5-乐观锁"><a href="#5-乐观锁" class="headerlink" title="5. 乐观锁"></a>5. 乐观锁</h4><p>乐观锁只是在更新数据那一刻锁表，其他时间不锁表，所以相对于悲观锁，效率更高。</p>
 <p>乐观锁的实现方式多种多样，可以通过version或者其他状态条件：</p>
 <ul>

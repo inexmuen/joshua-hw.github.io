@@ -96,7 +96,7 @@ IO模型衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选�
 IO模型衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选择，至关重要。不同的网络IO模型，在高并发的状态下，处理性能上会有很大的差别。如Thrift提供支持以下IO模型的server实现:
 
 多线程阻塞式IO服务模型 - TThreadPoolServ">
-<meta property="og:updated_time" content="2017-02-04T08:36:41.000Z">
+<meta property="og:updated_time" content="2017-02-06T05:14:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RPC框架 & 服务治理">
 <meta name="twitter:description" content="RPC框架概念RPC，即远程过程调用，说得通俗一点就是：调用远程计算机上的服务，就像调用本地服务一样。RPC框架是SOA架构的重要基石。
@@ -428,6 +428,7 @@ IO模型衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选�
 <li>半同步半异步的服务模型 - <code>THsHaServer</code></li>
 <li>多线程半同步半异步的服务模型 - <code>TThreadedSelectorServer</code></li>
 </ul>
+<a id="more"></a>
 <h3 id="Serialization-amp-Deserialization"><a href="#Serialization-amp-Deserialization" class="headerlink" title="Serialization &amp; Deserialization"></a>Serialization &amp; Deserialization</h3><p>另外一个衡量RPC框架性能的标准，就是传输协议。通讯协议约定了RPC请求中<code>client</code>和<code>server</code>的通讯方式，序列化和反序列化属于通讯协议的一部分，是设计RPC框架时一个重要的考虑因素。在选择序列化/反序列化方式时通常需要考虑以下几个方面:</p>
 <ul>
 <li>通用性<ul>
