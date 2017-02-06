@@ -16,6 +16,8 @@ A/B测试的大致流程如下:
 
 ![ABTesting.jpg](ab-testing/ABTesting.jpg)
 
+<!-- more -->
+
 从图中可以看出A/B测试的四个关键角色:
 
 - 客户端(Client)
@@ -28,8 +30,6 @@ A/B测试的大致流程如下:
 - 无A/B测试的普通访问流程(Non AB test)
 - 基于后端的A/B测试访问流程(Back-end AB test)
 - 基于前端的A/B测试访问流程(Front-end AB test)
-
-<!-- more -->
 
 ### 关键技术
 
