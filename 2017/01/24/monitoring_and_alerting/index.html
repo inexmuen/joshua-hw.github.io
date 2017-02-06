@@ -107,7 +107,7 @@
 
 一般增加一个collect agent用于统一数据格式，收集实时指标，同时用">
 <meta property="og:image" content="http://joshua-hw.github.io/2017/01/24/monitoring_and_alerting/arch.jpg">
-<meta property="og:updated_time" content="2017-02-06T05:13:19.000Z">
+<meta property="og:updated_time" content="2017-02-06T05:21:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务监控和报警">
 <meta name="twitter:description" content="背景对于应用开发团队来说，每天面对大量复杂多变业务逻辑的开发。为了发现潜在的问题，为了发生突发问题进行排障时有据可循，更为了了解服务的运行状况和服务性能，一个完善的自动化的监控报警系统非常必要。
@@ -447,6 +447,7 @@
 </ul>
 <p>一般增加一个collect agent用于统一数据格式，收集实时指标，同时用于数据的广播，解耦系统以及快速持久化等，同时将所有的指标发送到这个agent</p>
 <h4 id="传输"><a href="#传输" class="headerlink" title="传输"></a>传输</h4><p>由于指标是非业务数据，属于样本性质，可以容忍丢失。所以数据源到agent的数据传输，一般使用UDP协议</p>
+<a id="more"></a>
 <h4 id="分析计算"><a href="#分析计算" class="headerlink" title="分析计算"></a>分析计算</h4><p>需要进行分析计算的<code>指标维度</code>一般有以下几种:</p>
 <ul>
 <li>Gauges: 代表一个度量的即时值。当你的程序运行的时候，内存使用量和CPU占用率都可以通过Gauge值来度量。 </li>
@@ -456,7 +457,6 @@
 <li>Timers: 用来测量一段代码被调用的速率和用时</li>
 </ul>
 <h4 id="显示-amp-通知"><a href="#显示-amp-通知" class="headerlink" title="显示 &amp; 通知"></a>显示 &amp; 通知</h4><p>对应的数据在进行计算后，需要进行显示。同时若有异常情况，需要通知关注的人员。</p>
-<a id="more"></a>
 <h3 id="报警系统"><a href="#报警系统" class="headerlink" title="报警系统"></a>报警系统</h3><p>报警系统的数据来源和监控系统相似，只是在<code>分析计算</code>后添加了<code>报警规则配置</code>和<code>报警事件生成</code>层</p>
 <hr>
 <p>监控报警系统的系统架构可以参考: <a href="http://os.51cto.com/art/201603/507858.htm" target="_blank" rel="external">统一监控报警平台的架构设计思路分享</a></p>
