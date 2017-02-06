@@ -93,7 +93,7 @@
 <meta property="og:description" content="Design For FailureDesign For Failure的核心思想在于: 容忍错误，快速恢复，将failure当做普通事件处理。
 当应用构建在云服务(cloud)上，这个概念更多被提及(Design For Failure Is Key To Success In The Cloud)。因为相比普通线上环境，云设施的复杂度更大，同时也导致了稳定性以及健壮性的复杂，因此Failure">
 <meta property="og:image" content="http://joshua-hw.github.io/2016/09/29/mq_back_up/mq_back_up.png">
-<meta property="og:updated_time" content="2017-01-26T14:04:32.000Z">
+<meta property="og:updated_time" content="2017-02-06T05:13:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="消息补偿">
 <meta name="twitter:description" content="Design For FailureDesign For Failure的核心思想在于: 容忍错误，快速恢复，将failure当做普通事件处理。
@@ -422,6 +422,7 @@
 <p>饿了么订单系统在<code>Design For Failure</code>思想上的实践主要有以下四个内容。第一是<code>消息广播补偿</code>，第二是<code>主流程补偿</code>，第三是<code>灾备</code>，第四是<code>随机故障测试系统</code>。</p>
 <hr>
 <p>本文详细介绍一下<code>消息广播补偿</code></p>
+<a id="more"></a>
 <h2 id="补偿方案"><a href="#补偿方案" class="headerlink" title="补偿方案"></a>补偿方案</h2><p>补偿方案可以考虑:</p>
 <ul>
 <li>不同介质的补偿，如mq/redis互相补偿</li>

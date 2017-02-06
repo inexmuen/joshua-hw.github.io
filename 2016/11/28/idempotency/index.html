@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Joshua's Blog">
 <meta property="og:description" content="关于幂等幂等（idempotency）是一个数学与计算机学概念，常见于抽象代数中。在编程中，一个幂等操作的特点是其任意多次执行所产生的影响均与一次执行的影响相同。幂等函数，或幂等方法，是指可以使用相同参数重复执行，并能获得相同结果的函数。这些函数不会影响系统状态，也不用担心重复执行会对系统造成改变。
 解决方案1. 查询操作查询一次和查询多次，在数据不变的情况下，查询结果是一样的。在隔离级别为可重复">
-<meta property="og:updated_time" content="2017-01-26T14:04:32.000Z">
+<meta property="og:updated_time" content="2017-02-06T05:11:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="幂等的实现">
 <meta name="twitter:description" content="关于幂等幂等（idempotency）是一个数学与计算机学概念，常见于抽象代数中。在编程中，一个幂等操作的特点是其任意多次执行所产生的影响均与一次执行的影响相同。幂等函数，或幂等方法，是指可以使用相同参数重复执行，并能获得相同结果的函数。这些函数不会影响系统状态，也不用担心重复执行会对系统造成改变。
@@ -418,6 +418,7 @@
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="1-查询操作"><a href="#1-查询操作" class="headerlink" title="1. 查询操作"></a>1. 查询操作</h3><p>查询一次和查询多次，在数据不变的情况下，查询结果是一样的。在隔离级别为可重复读时，select是天然的幂等操作 </p>
 <h3 id="2-删除操作"><a href="#2-删除操作" class="headerlink" title="2. 删除操作"></a>2. 删除操作</h3><p>删除操作也是幂等的，删除一次和多次删除结果相同，都是把数据删除。(注意可能返回结果不一样，删除的数据不存在，返回0；删除的数据多条，返回结果多个) </p>
 <h3 id="3-唯一索引，防止新增脏数据"><a href="#3-唯一索引，防止新增脏数据" class="headerlink" title="3. 唯一索引，防止新增脏数据"></a>3. 唯一索引，防止新增脏数据</h3><p>唯一索引或唯一组合索引来防止新增数据存在脏数据，不过对DB性能有影响</p>
+<a id="more"></a>
 <h3 id="4-token机制，防止页面重复提交"><a href="#4-token机制，防止页面重复提交" class="headerlink" title="4. token机制，防止页面重复提交"></a>4. token机制，防止页面重复提交</h3><p>处理流程：</p>
 <ol>
 <li>数据提交前要向服务的申请token，token放到redis或jvm内存，token设置有效时间</li>
