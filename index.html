@@ -599,15 +599,6 @@
 </ul>
 <p>一般增加一个collect agent用于统一数据格式，收集实时指标，同时用于数据的广播，解耦系统以及快速持久化等，同时将所有的指标发送到这个agent</p>
 <h4 id="传输"><a href="#传输" class="headerlink" title="传输"></a>传输</h4><p>由于指标是非业务数据，属于样本性质，可以容忍丢失。所以数据源到agent的数据传输，一般使用UDP协议</p>
-<h4 id="分析计算"><a href="#分析计算" class="headerlink" title="分析计算"></a>分析计算</h4><p>需要进行分析计算的<code>指标维度</code>一般有以下几种:</p>
-<ul>
-<li>Gauges: 代表一个度量的即时值。当你的程序运行的时候，内存使用量和CPU占用率都可以通过Gauge值来度量。 </li>
-<li>Counters: 就是计数器，是一个可以用来增加或者减少值的数。例如，可以用它来计数队列中加入的Job的总数。</li>
-<li>Meters: 用来计算事件的速率。例如 request per second。还可以提供1分钟，5分钟，15分钟不断更新的平均速率</li>
-<li>Histograms: 可以为数据流提供统计数据。除了最大值，最小值，平均值外，它还可以测量中值(median)，百分比比如XX%这样的Quantile数据</li>
-<li>Timers: 用来测量一段代码被调用的速率和用时</li>
-</ul>
-<h4 id="显示-amp-通知"><a href="#显示-amp-通知" class="headerlink" title="显示 &amp; 通知"></a>显示 &amp; 通知</h4><p>对应的数据在进行计算后，需要进行显示。同时若有异常情况，需要通知关注的人员。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/01/24/monitoring_and_alerting/#more" rel="contents">

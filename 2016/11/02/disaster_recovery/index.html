@@ -95,7 +95,7 @@
 网站灾备方案不但承担容灾的任务，很多时候也承担着负载均衡，优化性能的任务。网站灾备有以下几种方式。
 主备镜像(冷备)两个数据中心服务器部署完全一样，每次网站发布都要在两个数据中心同时发布，保证运行系统版本一致。两个数据中心有主备之分，数据通过准实时的同步系统从主站不断同步到备站。主站发生灾害性故障导致完全不可用，则将域名解析切换到备站。这种方案">
 <meta property="og:image" content="http://joshua-hw.github.io/2016/11/02/disaster_recovery/disaster_recovery.png">
-<meta property="og:updated_time" content="2017-02-06T05:10:26.000Z">
+<meta property="og:updated_time" content="2017-02-06T05:24:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于灾备">
 <meta name="twitter:description" content="形式为了保证业务的高可用，需要保证关键业务做好灾备。
@@ -423,12 +423,12 @@
 <p>网站灾备方案不但承担容灾的任务，很多时候也承担着负载均衡，优化性能的任务。网站灾备有以下几种方式。</p>
 <h3 id="主备镜像-冷备"><a href="#主备镜像-冷备" class="headerlink" title="主备镜像(冷备)"></a>主备镜像(冷备)</h3><p>两个数据中心服务器部署完全一样，每次网站发布都要在两个数据中心同时发布，保证运行系统版本一致。两个数据中心有主备之分，数据通过准实时的同步系统从主站不断同步到备站。主站发生灾害性故障导致完全不可用，则将域名解析切换到备站。这种方案纯粹是为了容灾。</p>
 <h3 id="业务互补，数据同步"><a href="#业务互补，数据同步" class="headerlink" title="业务互补，数据同步"></a>业务互补，数据同步</h3><p>如某网站美国机房和国内机房部署的服务在业务上互补，美国机房部署买家服务，国内机房部署卖家服务，海外用户（主要是买家）访问美国机房，国内用户（主要是卖家）访问国内机房。主要业务数据互相实时同步，因为数据在两个机房同时写入，可能会发生冲突。</p>
+<a id="more"></a>
 <h3 id="主主镜像-多活"><a href="#主主镜像-多活" class="headerlink" title="主主镜像(多活)"></a>主主镜像(多活)</h3><p>部署和发布模式与主备一样，但是多个数据中心是同时启用的，根据用户地域将域名解析到不同的机房，数据实时同步。如新浪微博。</p>
 <p>如北方用户访问北京机房，南方用户访问上海机房。主要业务数据互相实时同步。</p>
 <h3 id="一写多读-类似于DB单master多slave"><a href="#一写多读-类似于DB单master多slave" class="headerlink" title="一写多读(类似于DB单master多slave)"></a>一写多读(类似于DB<code>单master多slave</code>)</h3><p>数据写入只发生在一个数据中心，但是为了加快地区用户访问，会将数据同步到其他数据中心供只读访问。这种方案适用于读多写少的网站。比如wikipedia。</p>
 <hr>
 <p>本文讨论<code>主备镜像</code>形式的灾备。</p>
-<a id="more"></a>
 <h2 id="流程-主备镜像"><a href="#流程-主备镜像" class="headerlink" title="流程(主备镜像)"></a>流程(主备镜像)</h2><p>灾备对应的流程如下:</p>
 <p><img src="/2016/11/02/disaster_recovery/disaster_recovery.png" alt="disaster_recovery.png"></p>
 <h2 id="关键点"><a href="#关键点" class="headerlink" title="关键点"></a>关键点</h2><h3 id="数据灾备"><a href="#数据灾备" class="headerlink" title="数据灾备"></a>数据灾备</h3><p>灾备的重点在于数据，即灾难发生后可以确保用户原有的数据不会丢失或者遭到破坏。解决方案是依赖基于网络的数据复制工具，实现生产中心和灾备中心之间的异步/同步的数据传输</p>
