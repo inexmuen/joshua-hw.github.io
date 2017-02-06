@@ -23,6 +23,8 @@ categories: tool
 
 对应的repo为: [https://github.com/joshua-hw/my_vim](https://github.com/joshua-hw/my_vim)
 
+<!-- more -->
+
 ## 配置
 
 如果你需要配置vim，只需在Home目录创建一个`~/.vimrc`文件即可以配置vim了。以下是笔者的`.vimrc`文件内容。

@@ -19,6 +19,8 @@ categories: arch
 - rabbitmq存储task，consumer延时处理。consumer端sleep N秒。当N较大时，mq中可能会堆积大量消息
 - 使用beanstalkd, nsq等天生很好支持延时特性的queue，但是使用较少，社区缺少相应的技术支持
 
+<!-- more -->
+
 ## dead letter exchange
 
 此处介绍一下DLX的创建, DLX的整体流程如下:

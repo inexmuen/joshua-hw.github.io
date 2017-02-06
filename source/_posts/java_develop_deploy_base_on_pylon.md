@@ -52,6 +52,8 @@ sample可以参考[sample-project](docs/sample-project.zip), repo地址[https://
 - common: 定义公共组件
 - pom.xml: 父级pom定义  
 
+<!-- more -->
+
 ## 开发流程:
 
 - 定义接口: api定义, interface定义，写对应的dto

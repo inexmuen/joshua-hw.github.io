@@ -32,6 +32,8 @@ Consumer调用Provider提供的服务
 Producer发送消息给Queue；Consumer从Queue拿消息来处理
 ```
 
+<!-- more -->
+
 ## 功能特点
 
 ### 相同点

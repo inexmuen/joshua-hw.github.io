@@ -14,6 +14,8 @@ categories: machine-learning
 
 ![什么是机器学习](machine-learning-tutorial/machine-learning.png)
 
+<!-- more -->
+
 ### 运用
 
 #### 分类问题

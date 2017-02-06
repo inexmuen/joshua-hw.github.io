@@ -11,6 +11,8 @@ categories: arch
 
 ![tcc](distributed-transaction-in-soa/1_tcc.jpg)
 
+<!-- more -->
+
 ## 异步确保型
 
 ![mq](distributed-transaction-in-soa/2_mq.jpg)

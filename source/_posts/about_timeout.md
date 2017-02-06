@@ -28,6 +28,8 @@ setsockopt(socket，SOL_S0CKET,SO_SNDTIMEO，(char *)&nNetTimeout,sizeof(int));
 setsockopt(socket，SOL_S0CKET,SO_RCVTIMEO，(char *)&nNetTimeout,sizeof(int));
 ```
 
+<!-- more -->
+
 ### 非阻塞IO的timeout
 
 但是，用过Linux下非阻塞I/O的都知道，非阻塞情况下，设置连接超时神马都是浮云的，因为人家是非阻塞的。典型的譬如Python的gevent，在用monkey.patch_all()之后，所有的socket都会被转化为非阻塞的，这时候的timeout设置就失效了。这种情况下gevent提供了Timeout类，当你的类似sleep（由于I/O、sleep等原因挂起）超时超过了Timeout的时间限制后，会自动终止block，跳出。使用方法如下:

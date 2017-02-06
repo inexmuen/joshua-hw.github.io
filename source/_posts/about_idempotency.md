@@ -30,6 +30,8 @@ categories: arch
 select * from table_xxx where id='xxx' for update;
 ```
 
+<!-- more -->
+
 #### 5. 乐观锁
 
 乐观锁只是在更新数据那一刻锁表，其他时间不锁表，所以相对于悲观锁，效率更高。

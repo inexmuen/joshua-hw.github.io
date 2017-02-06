@@ -22,6 +22,8 @@ categories: arch
 
 各种基于数据库的全局唯一ID生成方案可以参考: [http://www.cnblogs.com/heyuquan/p/global-guid-identity-maxId.html](http://www.cnblogs.com/heyuquan/p/global-guid-identity-maxId.html)
 
+<!-- more -->
+
 ### 基于分布式集群协调器生成
 
 在不使用数据库的情况下，通过一个后台服务对外提供高可用的、固定步长标识生成，则需要分布式的集群协调器进行。
