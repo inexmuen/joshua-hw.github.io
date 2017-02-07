@@ -5,9 +5,7 @@ type: "about"
 ---
 
 
-<ul>
-<li>Id: joshua-hw</li>
-<li>Organizations: <a href="https://github.com/eleme" target="_blank" rel="group" class="fancybox" style="border: 0px;"><img style="display: inline; vertical-align: middle;" src="https://avatars1.githubusercontent.com/u/1201438?v=3&amp;s=84" width="30" height="30"></a></li>
-<li>Linkedin: <a href="https://www.linkedin.com/in/joshua-hw" target="_blank" rel="external">https://www.linkedin.com/in/joshua-hw</a></li>
-<li>由<a href="https://hexo.io/" target="_blank">Hexo</a>强力驱动 | 主题 <a href="http://theme-next.iissnan.com/" target="_blank">Next</a></li>
-</ul>
+
+- 大型互联网公司***后端业务架构师***一枚
+- 略懂大型网站技术架构
+- 曾经写过一点`Php`, `Python`, `Java`
