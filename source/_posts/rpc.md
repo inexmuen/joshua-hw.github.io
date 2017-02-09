@@ -17,6 +17,7 @@ categories: arch
 
 衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选择，至关重要。不同的网络IO模型，在高并发的状态下，处理性能上会有很大的差别。如Thrift提供支持以下IO模型的server实现:
 
+- 单线程阻塞式IO服务模型 - `TSimpleServer`
 - 多线程阻塞式IO服务模型 - `TThreadPoolServer`
 - 非阻塞式IO服务模型 - `TNonblockingServer`
 - 半同步半异步的服务模型 - `THsHaServer`
