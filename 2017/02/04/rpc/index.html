@@ -87,7 +87,8 @@
 <meta name="description" content="RPC框架概念RPC，即远程过程调用，说得通俗一点就是：调用远程计算机上的服务，就像调用本地服务一样。RPC框架是SOA架构的重要基石。
 IO模型衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选择，至关重要。不同的网络IO模型，在高并发的状态下，处理性能上会有很大的差别。如Thrift提供支持以下IO模型的server实现:
 
-多线程阻塞式IO服务模型 - TThreadPoolServ">
+单线程阻塞式IO服务模型 - TSimpleServer
+多">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RPC框架 & 服务治理">
 <meta property="og:url" content="http://joshua-hw.github.io/2017/02/04/rpc/index.html">
@@ -95,14 +96,16 @@ IO模型衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选�
 <meta property="og:description" content="RPC框架概念RPC，即远程过程调用，说得通俗一点就是：调用远程计算机上的服务，就像调用本地服务一样。RPC框架是SOA架构的重要基石。
 IO模型衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选择，至关重要。不同的网络IO模型，在高并发的状态下，处理性能上会有很大的差别。如Thrift提供支持以下IO模型的server实现:
 
-多线程阻塞式IO服务模型 - TThreadPoolServ">
-<meta property="og:updated_time" content="2017-02-06T05:14:40.000Z">
+单线程阻塞式IO服务模型 - TSimpleServer
+多">
+<meta property="og:updated_time" content="2017-02-09T07:22:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RPC框架 & 服务治理">
 <meta name="twitter:description" content="RPC框架概念RPC，即远程过程调用，说得通俗一点就是：调用远程计算机上的服务，就像调用本地服务一样。RPC框架是SOA架构的重要基石。
 IO模型衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选择，至关重要。不同的网络IO模型，在高并发的状态下，处理性能上会有很大的差别。如Thrift提供支持以下IO模型的server实现:
 
-多线程阻塞式IO服务模型 - TThreadPoolServ">
+单线程阻塞式IO服务模型 - TSimpleServer
+多">
 
 
 
@@ -423,6 +426,7 @@ IO模型衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选�
         <h2 id="RPC框架"><a href="#RPC框架" class="headerlink" title="RPC框架"></a>RPC框架</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p><code>RPC</code>，即远程过程调用，说得通俗一点就是：调用远程计算机上的服务，就像调用本地服务一样。RPC框架是SOA架构的重要基石。</p>
 <h3 id="IO模型"><a href="#IO模型" class="headerlink" title="IO模型"></a>IO模型</h3><p>衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选择，至关重要。不同的网络IO模型，在高并发的状态下，处理性能上会有很大的差别。如Thrift提供支持以下IO模型的server实现:</p>
 <ul>
+<li>单线程阻塞式IO服务模型 - <code>TSimpleServer</code></li>
 <li>多线程阻塞式IO服务模型 - <code>TThreadPoolServer</code></li>
 <li>非阻塞式IO服务模型 - <code>TNonblockingServer</code></li>
 <li>半同步半异步的服务模型 - <code>THsHaServer</code></li>
