@@ -81,6 +81,8 @@ Protobuf是一个纯粹的展示层协议，可以和各种传输层协议一起
 - `Java: json + netty`
 - `Python: thrift + thriftpy + thrift_connector + gunicorn`
 
+> thrift的相关库可以参考: [thriftpy](https://github.com/eleme/thriftpy), [swift](https://github.com/facebook/swift)
+
 ## 服务治理
 
 服务治理涵盖的内容很多，以下是服务治理的一些关键技术点
