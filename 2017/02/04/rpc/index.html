@@ -98,7 +98,7 @@ IO模型衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选�
 
 单线程阻塞式IO服务模型 - TSimpleServer
 多">
-<meta property="og:updated_time" content="2017-02-09T07:22:55.000Z">
+<meta property="og:updated_time" content="2017-02-10T01:54:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RPC框架 & 服务治理">
 <meta name="twitter:description" content="RPC框架概念RPC，即远程过程调用，说得通俗一点就是：调用远程计算机上的服务，就像调用本地服务一样。RPC框架是SOA架构的重要基石。
@@ -473,6 +473,9 @@ IO模型衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选�
 <li><code>Java: json + netty</code></li>
 <li><code>Python: thrift + thriftpy + thrift_connector + gunicorn</code></li>
 </ul>
+<blockquote>
+<p>thrift的相关库可以参考: <a href="https://github.com/eleme/thriftpy" target="_blank" rel="external">thriftpy</a>, <a href="https://github.com/facebook/swift" target="_blank" rel="external">swift</a></p>
+</blockquote>
 <h2 id="服务治理"><a href="#服务治理" class="headerlink" title="服务治理"></a>服务治理</h2><p>服务治理涵盖的内容很多，以下是服务治理的一些关键技术点</p>
 <h3 id="Service-Registry"><a href="#Service-Registry" class="headerlink" title="Service Registry"></a>Service Registry</h3><p>服务注册中心，是服务治理最重要的组件之一。本质上是为了解耦服务提供者和服务消费者。可以基于<code>ZooKeeper</code>或者<code>Etcd</code>实现一套服务注册机制。</p>
 <h3 id="LB"><a href="#LB" class="headerlink" title="LB"></a>LB</h3><p>有了服务注册中心后，就可以在client拿到服务全部的列表，则对应的负载均衡策略在RPC框架的client里面做就可以了。这避免了haproxy配置复杂和不能热加载的问题。</p>
