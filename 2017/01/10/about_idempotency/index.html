@@ -94,7 +94,7 @@
 <meta property="og:description" content="幂等方案可以保证幂等的操作1. 查询操作查询一次和查询多次，在数据不变的情况下，查询结果是一样的。在隔离级别为可重复读(mysql默认隔离级别)时，select是天然的幂等操作
 2. 删除操作删除操作也是幂等的，删除一次和多次删除结果相同，都是把数据删除。(注意可能返回结果不一样，删除的数据不存在，返回0；删除的数据多条，返回结果多个)
 3. 唯一索引唯一索引或唯一组合索引来防止提交重复数据，不过">
-<meta property="og:updated_time" content="2017-02-06T05:08:57.000Z">
+<meta property="og:updated_time" content="2017-02-10T03:03:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于幂等">
 <meta name="twitter:description" content="幂等方案可以保证幂等的操作1. 查询操作查询一次和查询多次，在数据不变的情况下，查询结果是一样的。在隔离级别为可重复读(mysql默认隔离级别)时，select是天然的幂等操作
@@ -459,11 +459,6 @@
 <li>使用redis作为接口锁，防止重复请求到达数据库，对数据库性能造成冲击（初步的幂等保证及数据库保护）</li>
 <li>使用唯一键保证不插入重复数据（最后的兜底及最终保证）</li>
 </ol>
-<h2 id="处理措施"><a href="#处理措施" class="headerlink" title="处理措施"></a>处理措施</h2><ol>
-<li>列出关键服务（交易，支付，清结算）的关键路径（接口）</li>
-<li>确认接口是否需要保证幂等，注明现在的幂等方案，考虑是否存在隐患</li>
-<li>第一步需要保证所有路径的<code>业务正确</code>，第二步使用推荐方案同时保证<code>业务正确</code>和<code>高性能</code></li>
-</ol>
 
       
     </div>
@@ -622,7 +617,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -704,7 +699,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#幂等方案"><span class="nav-number">1.</span> <span class="nav-text">幂等方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可以保证幂等的操作"><span class="nav-number">1.1.</span> <span class="nav-text">可以保证幂等的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-查询操作"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 查询操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-删除操作"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 删除操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-唯一索引"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 唯一索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-悲观锁"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. 悲观锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-乐观锁"><span class="nav-number">1.1.5.</span> <span class="nav-text">5. 乐观锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-分布式锁"><span class="nav-number">1.1.6.</span> <span class="nav-text">6. 分布式锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-状态机幂等"><span class="nav-number">1.1.7.</span> <span class="nav-text">7. 状态机幂等</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不推荐的方案"><span class="nav-number">1.2.</span> <span class="nav-text">不推荐的方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-select-insert"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. select + insert</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几条基本原则"><span class="nav-number">2.</span> <span class="nav-text">几条基本原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐方案"><span class="nav-number">3.</span> <span class="nav-text">推荐方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理措施"><span class="nav-number">4.</span> <span class="nav-text">处理措施</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#幂等方案"><span class="nav-number">1.</span> <span class="nav-text">幂等方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可以保证幂等的操作"><span class="nav-number">1.1.</span> <span class="nav-text">可以保证幂等的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-查询操作"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 查询操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-删除操作"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 删除操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-唯一索引"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 唯一索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-悲观锁"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. 悲观锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-乐观锁"><span class="nav-number">1.1.5.</span> <span class="nav-text">5. 乐观锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-分布式锁"><span class="nav-number">1.1.6.</span> <span class="nav-text">6. 分布式锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-状态机幂等"><span class="nav-number">1.1.7.</span> <span class="nav-text">7. 状态机幂等</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不推荐的方案"><span class="nav-number">1.2.</span> <span class="nav-text">不推荐的方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-select-insert"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. select + insert</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几条基本原则"><span class="nav-number">2.</span> <span class="nav-text">几条基本原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐方案"><span class="nav-number">3.</span> <span class="nav-text">推荐方案</span></a></li></ol></div>
             
 
           </div>
