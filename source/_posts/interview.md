@@ -70,12 +70,26 @@ categories: management
 				- 老年代
 				- 永久代  
 		- Vector/ArrayList/LinkedList的区别(p4)
-        - SpringBean的加载过程
+		- SpringBean的加载过程
 		- AOP的实现(p5)
+		- 代理(p4), 动态代理(p5), jdk动态代理和cglib动态代理(p6)
 		- GC机制, MinorGC & Full GC区别(p5), java内存泄漏场景(p5)
 		- 类加载机制(p5) 
 		- 反射的使用(p5)
 		- Thread Dump(p5)
+		- jvm常用命令jmap,jstack等(p5), jvm调优(根据情况)
+	- php
+       - 了解的php魔术方法和变量，作用(p4)
+       - 使用过的框架及其优缺点(p5+)
+       - php safe_mode的含义及影响(p5)
+       - php代码优化经验: xdebug, apc, eAccelerator, Xcache, Zend opt, C扩展等(p5)
+       - php标准库(SPL)的使用经验(p5)
+       - php代码的执行过程: zend engine, opcode(p5), sapi生命周期(p+)
+       - php弱类型是如何实现的(p6), zval(变量结构体)各字段含义及作用(p6)
+       - php hashtable作用(p5)，实现(p6)，hash碰撞及常用hash算法(p5)
+       - php gc机制(p5)
+       - php扩展编写(p6)
+       - php工作/运行模式(cgi, fast-cgi, cli, mode_php)大致描述(p4)，request/response流程(p5)
 	- C: 指针，内存管理(p5)
 	- 编码能力
 		- Error和Exception的概念，使用姿势(p5) 
@@ -102,7 +116,8 @@ categories: management
 
 
 - 网络
-	- OSI网络模型(p4)
+	- OSI网络模型(p4), 各分层及其作用(p5)
+	- 序列化和反序列化的作用，实现(p5)
 	- 三次握手/四次挥手(p4)
 	- http
 		- cookie/session(p4)
@@ -145,8 +160,11 @@ categories: management
 - 设计模式
 	- 代码实现单例模式 
 	- MVC模式
+	- 观察者模式
+	- 不同设计模式的使用场景(p4), 实现(p5)
 - 数据库
 	- ACID(p4)
+	- 数据库不同隔离级别(p4), 举例(p5)
 	- 脏读/不可重复读/幻读概念(p4)，场景(p5)
 	- undo/redo log概念(p5), 作用原理(P6) 
 	- 事务(p4)
@@ -170,17 +188,21 @@ categories: management
 	- 对于测试驱动开发的理解
 - 技能广度
 	- 框架，中间件(db,cache,mq)，存储(关系型/NoSQL)
-    - 消息队列的使用场景
+	- db/cache数据一致的保证
+	- 数据库sharding的实现，经验
+	- 消息队列的使用场景
+	- RPC和消息的区别，适用场景
 - 技能深度
+- 微服务timeout设置的意义
 	- 源码，bug，坑
 	- 性能优化的经验描述
 - Devops
 	- ci, docker
 	- 故障定位的经验: 过程及改进措施(p5)
 - 微服务 & 架构
-	- 幂等概念(p5)，实现(p6)
+	- 幂等概念(p5)，不同的实现方式(p6)
 	- 无状态含义
-	- RPC框架设计(p6)
+	- RPC框架设计(p6), RPC框架实现(p6)
 	- 服务注册/配置(p5)
 	- 监控/trace/报警
 		- 监控的设置(p5)
@@ -201,6 +223,7 @@ categories: management
 		- 缓存
 		- 异步
 		- 冗余  
+	- 延时任务的实现
 
 ### 综合部分
 
