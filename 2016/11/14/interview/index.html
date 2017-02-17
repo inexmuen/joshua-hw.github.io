@@ -126,7 +126,7 @@
 
 
 思路和方法 比 答案 更重">
-<meta property="og:updated_time" content="2017-02-10T03:06:55.000Z">
+<meta property="og:updated_time" content="2017-02-17T02:53:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="技术人员招聘指南">
 <meta name="twitter:description" content="本文主要为技术人员的招聘提供一些建议及指南，主要包括面试的流程，内容及面试评定准则。
@@ -533,10 +533,26 @@
 <li>Vector/ArrayList/LinkedList的区别(p4)</li>
 <li>SpringBean的加载过程</li>
 <li>AOP的实现(p5)</li>
+<li>代理(p4), 动态代理(p5), jdk动态代理和cglib动态代理(p6)</li>
 <li>GC机制, MinorGC &amp; Full GC区别(p5), java内存泄漏场景(p5)</li>
 <li>类加载机制(p5) </li>
 <li>反射的使用(p5)</li>
 <li>Thread Dump(p5)</li>
+<li>jvm常用命令jmap,jstack等(p5), jvm调优(根据情况)</li>
+</ul>
+</li>
+<li>php<ul>
+<li>了解的php魔术方法和变量，作用(p4)</li>
+<li>使用过的框架及其优缺点(p5+)</li>
+<li>php safe_mode的含义及影响(p5)</li>
+<li>php代码优化经验: xdebug, apc, eAccelerator, Xcache, Zend opt, C扩展等(p5)</li>
+<li>php标准库(SPL)的使用经验(p5)</li>
+<li>php代码的执行过程: zend engine, opcode(p5), sapi生命周期(p+)</li>
+<li>php弱类型是如何实现的(p6), zval(变量结构体)各字段含义及作用(p6)</li>
+<li>php hashtable作用(p5)，实现(p6)，hash碰撞及常用hash算法(p5)</li>
+<li>php gc机制(p5)</li>
+<li>php扩展编写(p6)</li>
+<li>php工作/运行模式(cgi, fast-cgi, cli, mode_php)大致描述(p4)，request/response流程(p5)</li>
 </ul>
 </li>
 <li>C: 指针，内存管理(p5)</li>
@@ -577,7 +593,8 @@
 </ul>
 <ul>
 <li>网络<ul>
-<li>OSI网络模型(p4)</li>
+<li>OSI网络模型(p4), 各分层及其作用(p5)</li>
+<li>序列化和反序列化的作用，实现(p5)</li>
 <li>三次握手/四次挥手(p4)</li>
 <li>http<ul>
 <li>cookie/session(p4)</li>
@@ -640,10 +657,13 @@
 <li>设计模式<ul>
 <li>代码实现单例模式 </li>
 <li>MVC模式</li>
+<li>观察者模式</li>
+<li>不同设计模式的使用场景(p4), 实现(p5)</li>
 </ul>
 </li>
 <li>数据库<ul>
 <li>ACID(p4)</li>
+<li>数据库不同隔离级别(p4), 举例(p5)</li>
 <li>脏读/不可重复读/幻读概念(p4)，场景(p5)</li>
 <li>undo/redo log概念(p5), 作用原理(P6) </li>
 <li>事务(p4)</li>
@@ -678,10 +698,14 @@
 </li>
 <li>技能广度<ul>
 <li>框架，中间件(db,cache,mq)，存储(关系型/NoSQL)</li>
+<li>db/cache数据一致的保证</li>
+<li>数据库sharding的实现，经验</li>
 <li>消息队列的使用场景</li>
+<li>RPC和消息的区别，适用场景</li>
 </ul>
 </li>
-<li>技能深度<ul>
+<li>技能深度</li>
+<li>微服务timeout设置的意义<ul>
 <li>源码，bug，坑</li>
 <li>性能优化的经验描述</li>
 </ul>
@@ -692,9 +716,9 @@
 </ul>
 </li>
 <li>微服务 &amp; 架构<ul>
-<li>幂等概念(p5)，实现(p6)</li>
+<li>幂等概念(p5)，不同的实现方式(p6)</li>
 <li>无状态含义</li>
-<li>RPC框架设计(p6)</li>
+<li>RPC框架设计(p6), RPC框架实现(p6)</li>
 <li>服务注册/配置(p5)</li>
 <li>监控/trace/报警<ul>
 <li>监控的设置(p5)</li>
@@ -723,6 +747,7 @@
 <li>冗余  </li>
 </ul>
 </li>
+<li>延时任务的实现</li>
 </ul>
 </li>
 </ul>
