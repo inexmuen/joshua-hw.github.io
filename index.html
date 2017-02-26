@@ -426,6 +426,9 @@
 <li><code>Protostuff</code>: RPC通讯过程中的序列化/反序列化</li>
 <li><code>Zookeeper</code>: 服务注册与发现</li>
 </ul>
+<blockquote>
+<p>主要是使用<code>Netty</code>构建server，同时在服务启动时向ZK注册服务<code>serviceAddress</code>, <code>servicePort</code>等信息。使用client发送请求时，将请求动态代理成对netty server的请求。server和client的通讯使用<code>protostuff</code>进行编码和解码。</p>
+</blockquote>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/02/24/rpc_framework/#more" rel="contents">
