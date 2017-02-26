@@ -95,7 +95,10 @@ Techs此RPC框架依赖于以下技术:
 Spring: 依赖注入
 Netty: NIO Server
 Protostuff: RPC通讯过程中的序列化/反序列化
-Zookeeper: 服务注册与发现">
+Zookeeper: 服务注册与发现
+
+
+主要是使用Netty构建server，同时在服务启动时向ZK注册服务serviceAddres">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RPC框架">
 <meta property="og:url" content="http://joshua-hw.github.io/2017/02/24/rpc_framework/index.html">
@@ -111,9 +114,12 @@ Techs此RPC框架依赖于以下技术:
 Spring: 依赖注入
 Netty: NIO Server
 Protostuff: RPC通讯过程中的序列化/反序列化
-Zookeeper: 服务注册与发现">
+Zookeeper: 服务注册与发现
+
+
+主要是使用Netty构建server，同时在服务启动时向ZK注册服务serviceAddres">
 <meta property="og:image" content="http://joshua-hw.github.io/2017/02/24/rpc_framework/rpc_mechanism.png">
-<meta property="og:updated_time" content="2017-02-24T14:59:55.000Z">
+<meta property="og:updated_time" content="2017-02-26T10:17:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RPC框架">
 <meta name="twitter:description" content="此RPC框架实现了基本的RPC通信及服务注册/发现功能。
@@ -127,7 +133,10 @@ Techs此RPC框架依赖于以下技术:
 Spring: 依赖注入
 Netty: NIO Server
 Protostuff: RPC通讯过程中的序列化/反序列化
-Zookeeper: 服务注册与发现">
+Zookeeper: 服务注册与发现
+
+
+主要是使用Netty构建server，同时在服务启动时向ZK注册服务serviceAddres">
 <meta name="twitter:image" content="http://joshua-hw.github.io/2017/02/24/rpc_framework/rpc_mechanism.png">
 
 
@@ -459,23 +468,58 @@ Zookeeper: 服务注册与发现">
 <li><code>Protostuff</code>: RPC通讯过程中的序列化/反序列化</li>
 <li><code>Zookeeper</code>: 服务注册与发现</li>
 </ul>
+<blockquote>
+<p>主要是使用<code>Netty</code>构建server，同时在服务启动时向ZK注册服务<code>serviceAddress</code>, <code>servicePort</code>等信息。使用client发送请求时，将请求动态代理成对netty server的请求。server和client的通讯使用<code>protostuff</code>进行编码和解码。</p>
+</blockquote>
 <a id="more"></a>
 <h2 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h2><ul>
-<li><code>rpc-client</code>: RPC client实现</li>
-<li><code>rpc-common</code><ul>
-<li><code>bean</code>: RPC request &amp; response</li>
-<li><code>codec</code>: RPC encode &amp; decode</li>
-<li><code>util</code>: 工具类 </li>
+<li><code>rpc-client</code>: RPC client实现<ul>
+<li><code>RpcClient</code>: RPC客户端</li>
+<li><code>RpcProxy</code>: RPC代理，用于创建RPC请求动态代理对象</li>
 </ul>
 </li>
-<li><code>rpc-registry</code>: 服务注册和发现接口</li>
-<li><code>rpc-registry-zookeeper</code>: 基于zk的服务注册和发现</li>
-<li><code>rpc-sample</code>: RPC框架的使用代码示例</li>
-<li><code>rpc-server</code>: RPC server实现</li>
+<li><code>rpc-common</code><ul>
+<li><code>bean</code><ul>
+<li><code>RpcRequest</code>: RPC请求结构体</li>
+<li><code>RpcResponse</code>: RPC响应结构体</li>
 </ul>
-<h2 id="Key-points"><a href="#Key-points" class="headerlink" title="Key points"></a>Key points</h2><blockquote>
-<p>ToDo</p>
-</blockquote>
+</li>
+<li><code>codec</code><ul>
+<li><code>RpcDecoder</code>: RPC通信解码</li>
+<li><code>RpcEncoder</code>: RPC通信编码</li>
+</ul>
+</li>
+<li><code>util</code><ul>
+<li><code>CollectionUtil</code>: 集合工具类</li>
+<li><code>SerializationUtil</code>: 序列化/反序列化工具类</li>
+<li><code>StringUtil</code>: 字符串工具类</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>rpc-registry</code>: 服务注册和发现接口<ul>
+<li><code>ServiceDiscovery</code>: 服务发现接口</li>
+<li><code>ServiceRegistry</code>: 服务注册接口</li>
+</ul>
+</li>
+<li><code>rpc-registry-zookeeper</code>: 基于zk的服务注册和发现<ul>
+<li><code>ZooKeeperServiceDiscovery</code>: 基于zk的服务发现实现</li>
+<li><code>ZooKeeperServiceRegistry</code>: 基于zk的服务注册实现</li>
+</ul>
+</li>
+<li><code>rpc-sample</code>: RPC框架的使用代码示例<ul>
+<li><code>rpc-sample-api</code>: RPC接口定义</li>
+<li><code>rpc-sample-demo</code>: RPC请求client Demo</li>
+<li><code>rpc-sample-service</code>: RPC接口实现</li>
+</ul>
+</li>
+<li><code>rpc-server</code>: RPC server实现<ul>
+<li><code>RpcServer</code>: RPC服务器</li>
+<li><code>RpcServerHandler</code>: RPC请求处理</li>
+<li><code>RpcService</code>: RPC服务注解</li>
+</ul>
+</li>
+</ul>
 <h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>以下为使用步骤，代码实现在<code>rpc-sample</code>中。</p>
 <h3 id="1-定义接口"><a href="#1-定义接口" class="headerlink" title="1. 定义接口"></a>1. 定义接口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">public interface HelloService &#123;</div><div class="line"></div><div class="line">    String hello(String name);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="2-实现接口"><a href="#2-实现接口" class="headerlink" title="2. 实现接口"></a>2. 实现接口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@RpcService(HelloService.class)</div><div class="line">public class HelloServiceImpl implements HelloService &#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String hello(String name) &#123;</div><div class="line">        return &quot;Hello! &quot; + name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -485,11 +529,11 @@ Zookeeper: 服务注册与发现">
 <li><code>rpc.service_address</code>: RPC服务地址</li>
 <li><code>rpc.registry_address</code>: RPC服务注册地址</li>
 </ul>
-<p>启动信息如下:</p>
+<p>启动日志如下:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">start service</div><div class="line">connect zookeeper</div><div class="line">create registry node: /registry</div><div class="line">create service node: /registry/joshuahw.sample.api.HelloService</div><div class="line">create address node: /registry/joshuahw.sample.api.HelloService/address-0000000000</div><div class="line">register service: joshuahw.sample.api.HelloService =&gt; 127.0.0.1:2017</div><div class="line">server started on port 2017</div></pre></td></tr></table></figure>
 <h3 id="4-配置并调用RPC服务"><a href="#4-配置并调用RPC服务" class="headerlink" title="4. 配置并调用RPC服务"></a>4. 配置并调用RPC服务</h3><p>使用<code>RpcProxy</code>创建对应接口的代理。将对接口方法的调用，动态代理成对RPC server(<code>Netty Server</code>)的请求。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public class HelloClient &#123;</div><div class="line"></div><div class="line">    public static void main(String[] args) throws Exception &#123;</div><div class="line"></div><div class="line">        ApplicationContext context = new ClassPathXmlApplicationContext(&quot;spring.xml&quot;);</div><div class="line">        RpcProxy rpcProxy = context.getBean(RpcProxy.class);</div><div class="line"></div><div class="line">        HelloService helloService = rpcProxy.create(HelloService.class);</div><div class="line">        String result = helloService.hello(&quot;Joshua&quot;);</div><div class="line">        System.out.println(result);</div><div class="line"></div><div class="line">        System.exit(0);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>对应的日志如下:</p>
+<p>调用日志如下:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">connect zookeeper</div><div class="line">get only address node: address-0000000000</div><div class="line">discover service: joshuahw.sample.api.HelloService =&gt; 127.0.0.1:2017</div><div class="line">time: 400ms</div><div class="line">Hello! Joshua</div></pre></td></tr></table></figure>
 
       
@@ -727,7 +771,7 @@ Zookeeper: 服务注册与发现">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Techs"><span class="nav-number">1.</span> <span class="nav-text">Techs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Modules"><span class="nav-number">2.</span> <span class="nav-text">Modules</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Key-points"><span class="nav-number">3.</span> <span class="nav-text">Key points</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Usage"><span class="nav-number">4.</span> <span class="nav-text">Usage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-定义接口"><span class="nav-number">4.1.</span> <span class="nav-text">1. 定义接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-实现接口"><span class="nav-number">4.2.</span> <span class="nav-text">2. 实现接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-配置并启动RPC服务"><span class="nav-number">4.3.</span> <span class="nav-text">3. 配置并启动RPC服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-配置并调用RPC服务"><span class="nav-number">4.4.</span> <span class="nav-text">4. 配置并调用RPC服务</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Techs"><span class="nav-number">1.</span> <span class="nav-text">Techs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Modules"><span class="nav-number">2.</span> <span class="nav-text">Modules</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Usage"><span class="nav-number">3.</span> <span class="nav-text">Usage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-定义接口"><span class="nav-number">3.1.</span> <span class="nav-text">1. 定义接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-实现接口"><span class="nav-number">3.2.</span> <span class="nav-text">2. 实现接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-配置并启动RPC服务"><span class="nav-number">3.3.</span> <span class="nav-text">3. 配置并启动RPC服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-配置并调用RPC服务"><span class="nav-number">3.4.</span> <span class="nav-text">4. 配置并调用RPC服务</span></a></li></ol></li></ol></div>
             
 
           </div>
