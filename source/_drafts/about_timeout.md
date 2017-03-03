@@ -30,6 +30,110 @@ setsockopt(socket，SOL_S0CKET,SO_RCVTIMEO，(char *)&nNetTimeout,sizeof(int));
 
 <!-- more -->
 
+### 非阻塞IO的timeout
+
+但是，用过Linux下非阻塞I/O的都知道，非阻塞情况下，设置连接超时神马都是浮云的，因为人家是非阻塞的。典型的譬如Python的gevent，在用monkey.patch_all()之后，所有的socket都会被转化为非阻塞的，这时候的timeout设置就失效了。这种情况下gevent提供了Timeout类，当你的类似sleep（由于I/O、sleep等原因挂起）超时超过了Timeout的时间限制后，会自动终止block，跳出。使用方法如下:
+
+```
+import gevent
+import gevent.monkey
+import time
+
+gevent.monkey.patch_all()
+
+def test():
+    with gevent.Timeout(5) as timeout:
+        time.sleep(10)
+        print "time out"
+
+if __name__ == "__main__":
+    g = gevent.spawn(test)
+    g.join()
+```
+
+### zeus_core中的超时
+
+#### 1. api_hard_timeout为接口的真实超时设置，为server的超时设置。是gevent执行对应协程时的Timeout，为server应用逻辑的timeout
+
+***设置***:
+
+```
+service = Service(
+    name=NAME,
+    slug=NAME[NAME.find('.')+1:],
+    timeout=3 * 1000,
+    api_hard_timeout=SERVICE_API_HARD_TIMEOUT,
+    ...
+```
+
+***实现***:
+
+```
+with gevent.Timeout(hard_timeout):
+    try:
+        result = func(dispatcher, *args)
+        ...
+```
+
+#### 2. timeout为软超时，目前只是打个warning,发个signal(无实际价值)
+
+#### 3. 调用其他服务时候的超时，为client的超时设置。是网络请求时的timeout
+
+***设置***:
+
+```
+'payment': {
+            'pool': 'huskar',
+            'name': 'me.ele.payment.service',
+            'client': 'http',
+            'timeout': config.get('config:soa_client_timeout:payment', 1),
+            'cluster': config.get('config:cluster:payment', "stable"),
+            'iface': 'me.ele.payment.api.service.PaymentService',
+            'thrift_file': path.join(
+                current_path, 'thrift_files/payment/PaymentService.thrift'),
+        }
+
+```
+
+表示`EOS`调用`payment`服务时的eos超时时间
+
+***实现***:(参考zeus_client使用http client中的代码实现)
+
+```
+from thriftpy.transport import TSocket, TBufferedTransport
+from . import Client, THTTPJsonProtocol
+
+socket = TSocket(host, port)
+socket.set_timeout(timeout)
+...
+```
+
+### Pylon对应的超时
+
+```
+private Object callCommand(Task task, BreakerMetrics metric) throws Throwable {
+        Future<?> result = null;
+        try {
+            result = service.submit(task);
+            long timeout = task.getTimeoutInMillis();
+            Object ret = result.get(timeout > 0 ? timeout : property.getTimeout(), TimeUnit.MILLISECONDS);
+            metric.increment(BreakerStatus.SUCCESS);
+            if (metric.inTestPhase()) {
+                metric.singleTestPass(true);
+            }
+            return ret;
+        } catch (InterruptedException | TimeoutException e) {
+            metric.increment(BreakerStatus.TIMEOUT);
+            if (result != null) {
+                result.cancel(true);
+            }
+            task.cancel();
+            task.setStatus(CallStatus.timeout);
+            throw new RequestTimeoutException(String.format("Service(%s) occurs a request execution timeout!", property.getService()));
+...
+
+```
+
 Java的超时设置可以参考:
 
 [Java: Set timeout for threads in a ThreadPool](http://stackoverflow.com/questions/14236654/java-set-timeout-for-threads-in-a-threadpool)
@@ -51,27 +155,6 @@ try {
 } catch (TimeoutException e) {
     System.out.println("Terminated!");
 }
-```
-
-### 非阻塞IO的timeout
-
-但是，用过Linux下非阻塞I/O的都知道，非阻塞情况下，设置连接超时神马都是浮云的，因为人家是非阻塞的。典型的譬如Python的gevent，在用monkey.patch_all()之后，所有的socket都会被转化为非阻塞的，这时候的timeout设置就失效了。这种情况下gevent提供了Timeout类，当你的类似sleep（由于I/O、sleep等原因挂起）超时超过了Timeout的时间限制后，会自动终止block，跳出。使用方法如下:
-
-```
-import gevent
-import gevent.monkey
-import time
-
-gevent.monkey.patch_all()
-
-def test():
-    with gevent.Timeout(5) as timeout:
-        time.sleep(10)
-        print "time out"
-
-if __name__ == "__main__":
-    g = gevent.spawn(test)
-    g.join()
 ```
 
 ## 最佳实践
@@ -201,6 +284,6 @@ public class JobServiceTest extends TestBase {
 - `>50s` 后，由于`innodb_lock_wait_timeout`的存在，事务1和事务2都会roll back，且打印以下log
 
 ```
-2017-01-16 14:04:23.810 INFO xxx.job.service.JobService[main]: [unknown 1.1 unknown^^2337080905338436383|1484546598112] ## update result: 0
-2017-01-16 14:04:23.810 INFO xxx.job.service.JobService[main]: [unknown 1.1 unknown^^2337080905338436383|1484546598112] ## Duration milliseconds: 51288
+2017-01-16 14:04:23.810 INFO me.ele.fin.job.service.JobService[main]: [unknown 1.1 unknown^^2337080905338436383|1484546598112] ## update result: 0 
+2017-01-16 14:04:23.810 INFO me.ele.fin.job.service.JobService[main]: [unknown 1.1 unknown^^2337080905338436383|1484546598112] ## Duration milliseconds: 51288 
 ```
