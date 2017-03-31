@@ -3,9 +3,9 @@
   
     
     <entry>
-      <title></title>
+      <title><![CDATA[存储引擎]]></title>
       <url>%2F2017%2F03%2F31%2Fstore_engine%2F</url>
-      <content type="text"><![CDATA[存储引擎哈希(hash)索引B树(B Tree)索引LSM树索引Bitcask跳表(Skiplist)]]></content>
+      <content type="text"><![CDATA[哈希(hash)索引B树(B Tree)索引LSM树索引Bitcask跳表(Skiplist)]]></content>
     </entry>
 
     
