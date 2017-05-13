@@ -97,7 +97,7 @@
 分类和维度分类垂直sharding以表为单位，把不同的表分散到不同的数据库或主机上。按领域模型，将业务紧密，表间关联密切的表划分在一起。特点是规则简单，实施方便，适合业务之间耦合度低的系统。
 水平s">
 <meta property="og:image" content="http://joshua-hw.github.io/2017/01/21/about_sharding/sharding.jpg">
-<meta property="og:updated_time" content="2017-01-26T07:18:48.000Z">
+<meta property="og:updated_time" content="2017-03-07T13:31:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库sharding">
 <meta name="twitter:description" content="概念数据库sharding，是指通过某种条件，把同一个数据库中的数据分散到多个数据库或多台机器上，以减小单台机器压力。
@@ -184,7 +184,7 @@
     </a>
   </div>
     
-      <p class="site-subtitle"></p>
+      <p class="site-subtitle">世界很大, 未来很长</p>
     
 </div>
 
@@ -431,6 +431,7 @@
 <li>垂直维度: 按业务领域可以划分为booking，订单，商户，支付，物流等几个领域，可按此进行垂直拆分</li>
 <li>水平维度: 电商中的两个最重要相关业务方为买家和卖家，最重要的业务为订单，所以可以依据买家和卖家信息生成订单，同时基于买家/卖家维度对相关表进行水平拆分</li>
 </ul>
+<a id="more"></a>
 <h2 id="sharding实现层面"><a href="#sharding实现层面" class="headerlink" title="sharding实现层面"></a>sharding实现层面</h2><p>从一个系统的程序架构层面来看，sharding逻辑可以在DAO层、JDBC API层、介于DAO与JDBC之间的Spring数据访问封装层(各种spring的template)以及介于应用服务器与数据库之间的sharding代理服务器四个层面上实现。</p>
 <p><img src="/2017/01/21/about_sharding/sharding.jpg" alt="sharding.jpg"></p>
 <h2 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h2><p>随着业务的发展，一般都会有一个从非sharding向sharding迁移的过程，为了保证迁移过程中数据的准确性和迁移失败的可回退，迁移过程一般分为三个阶段:</p>
@@ -568,7 +569,7 @@
                src="https://avatars1.githubusercontent.com/u/2180875?v=3&u=669f9a2b4e195cb7d1336a0dc4fa4efccaeba38c&s=400"
                alt="Joshua" />
           <p class="site-author-name" itemprop="name">Joshua</p>
-          <p class="site-description motion-element" itemprop="description">世界很大,未来很长!</p>
+          <p class="site-description motion-element" itemprop="description"></p>
         </div>
         <nav class="site-state motion-element">
         
@@ -584,7 +585,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -593,7 +594,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

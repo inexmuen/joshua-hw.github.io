@@ -94,7 +94,7 @@ MQ系统结构12345+-">
 <meta property="og:description" content="背景系统间互相调用时，是选择RPC还是MQ是经常需要权衡的问题，本文对两者的特点及适用场合进行简单的分析。
 系统结构RPC系统结构12345+----------+     +----------+| Consumer | &amp;lt;=&amp;gt; | Provider |+----------+     +----------+Consumer调用Provider提供的服务
 MQ系统结构12345+-">
-<meta property="og:updated_time" content="2017-01-26T07:16:36.000Z">
+<meta property="og:updated_time" content="2017-03-07T13:31:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RPC(远程过程调用)和MQ(消息队列)">
 <meta name="twitter:description" content="背景系统间互相调用时，是选择RPC还是MQ是经常需要权衡的问题，本文对两者的特点及适用场合进行简单的分析。
@@ -179,7 +179,7 @@ MQ系统结构12345+-">
     </a>
   </div>
     
-      <p class="site-subtitle"></p>
+      <p class="site-subtitle">世界很大, 未来很长</p>
     
 </div>
 
@@ -420,6 +420,7 @@ MQ系统结构12345+-">
         <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>系统间互相调用时，是选择RPC还是MQ是经常需要权衡的问题，本文对两者的特点及适用场合进行简单的分析。</p>
 <h2 id="系统结构"><a href="#系统结构" class="headerlink" title="系统结构"></a>系统结构</h2><h3 id="RPC系统结构"><a href="#RPC系统结构" class="headerlink" title="RPC系统结构"></a>RPC系统结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">+----------+     +----------+</div><div class="line">| Consumer | &lt;=&gt; | Provider |</div><div class="line">+----------+     +----------+</div><div class="line"></div><div class="line">Consumer调用Provider提供的服务</div></pre></td></tr></table></figure>
 <h3 id="MQ系统结构"><a href="#MQ系统结构" class="headerlink" title="MQ系统结构"></a>MQ系统结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">+----------+     +-------+     +----------+</div><div class="line">| Producer | &lt;=&gt; | Queue | &lt;=&gt; | Consumer |</div><div class="line">+----------+     +-------+     +----------+</div><div class="line"></div><div class="line">Producer发送消息给Queue；Consumer从Queue拿消息来处理</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="功能特点"><a href="#功能特点" class="headerlink" title="功能特点"></a>功能特点</h2><h3 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h3><ul>
 <li>都利于大型系统的解耦</li>
 <li>都是用于子系统的交互和通信，特别是异构子系统的交互</li>
@@ -558,7 +559,7 @@ MQ系统结构12345+-">
                src="https://avatars1.githubusercontent.com/u/2180875?v=3&u=669f9a2b4e195cb7d1336a0dc4fa4efccaeba38c&s=400"
                alt="Joshua" />
           <p class="site-author-name" itemprop="name">Joshua</p>
-          <p class="site-description motion-element" itemprop="description">世界很大,未来很长!</p>
+          <p class="site-description motion-element" itemprop="description"></p>
         </div>
         <nav class="site-state motion-element">
         
@@ -574,7 +575,7 @@ MQ系统结构12345+-">
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -583,7 +584,7 @@ MQ系统结构12345+-">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

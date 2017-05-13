@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="arch," />
+  <meta name="keywords" content="foundation," />
 
 
 
@@ -84,40 +84,36 @@
 
 
 
-<meta name="description" content="目录
-如何设计一门语言（一）——什么是坑(a)
-如何设计一门语言（二）——什么是坑(b)
-如何设计一门语言（三）——什么是坑(面向对象和异常处理)
-如何设计一门语言（四）——什么是坑(操作模板)
-如何设计一门语言（五）——面向对象和消息发送
-如何设计一门语言（六）——exception和error code
-如何设计一门语言（七）——闭包、lambda和interface
-如何设计一门语言（八）—">
+<meta name="description" content="逻辑结构逻辑结构是指数据元素之间的逻辑关系，即从逻辑关系上描述数据。它与数据的存储无关，是独立于计算机的。数据的逻辑结构分为线性结构和非线性结构，线性表是典型的线性结构；集合、树和图是典型的非线性结构。
+数据的逻辑结构分类见图。
+
+
+集合结构中的数据元素之间除了 “同属于一个集合”的关系外，别无其他关系。
+线性结构结构中的数据元素之间只存在一对一的关系。
+树形结构结构中的数据元素之间存在一对多的关">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何设计一门语言">
-<meta property="og:url" content="http://joshua-hw.github.io/2016/11/12/how_to_design_a_language/index.html">
+<meta property="og:title" content="数据的逻辑结构和存储结构">
+<meta property="og:url" content="http://joshua-hw.github.io/2016/09/10/data_structure/index.html">
 <meta property="og:site_name" content="Joshua's Blog">
-<meta property="og:description" content="目录
-如何设计一门语言（一）——什么是坑(a)
-如何设计一门语言（二）——什么是坑(b)
-如何设计一门语言（三）——什么是坑(面向对象和异常处理)
-如何设计一门语言（四）——什么是坑(操作模板)
-如何设计一门语言（五）——面向对象和消息发送
-如何设计一门语言（六）——exception和error code
-如何设计一门语言（七）——闭包、lambda和interface
-如何设计一门语言（八）—">
-<meta property="og:updated_time" content="2017-01-26T07:13:55.000Z">
+<meta property="og:description" content="逻辑结构逻辑结构是指数据元素之间的逻辑关系，即从逻辑关系上描述数据。它与数据的存储无关，是独立于计算机的。数据的逻辑结构分为线性结构和非线性结构，线性表是典型的线性结构；集合、树和图是典型的非线性结构。
+数据的逻辑结构分类见图。
+
+
+集合结构中的数据元素之间除了 “同属于一个集合”的关系外，别无其他关系。
+线性结构结构中的数据元素之间只存在一对一的关系。
+树形结构结构中的数据元素之间存在一对多的关">
+<meta property="og:image" content="http://joshua-hw.github.io/2016/09/10/data_structure/data_logic_structure.jpg">
+<meta property="og:updated_time" content="2017-04-25T02:25:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何设计一门语言">
-<meta name="twitter:description" content="目录
-如何设计一门语言（一）——什么是坑(a)
-如何设计一门语言（二）——什么是坑(b)
-如何设计一门语言（三）——什么是坑(面向对象和异常处理)
-如何设计一门语言（四）——什么是坑(操作模板)
-如何设计一门语言（五）——面向对象和消息发送
-如何设计一门语言（六）——exception和error code
-如何设计一门语言（七）——闭包、lambda和interface
-如何设计一门语言（八）—">
+<meta name="twitter:title" content="数据的逻辑结构和存储结构">
+<meta name="twitter:description" content="逻辑结构逻辑结构是指数据元素之间的逻辑关系，即从逻辑关系上描述数据。它与数据的存储无关，是独立于计算机的。数据的逻辑结构分为线性结构和非线性结构，线性表是典型的线性结构；集合、树和图是典型的非线性结构。
+数据的逻辑结构分类见图。
+
+
+集合结构中的数据元素之间除了 “同属于一个集合”的关系外，别无其他关系。
+线性结构结构中的数据元素之间只存在一对一的关系。
+树形结构结构中的数据元素之间存在一对多的关">
+<meta name="twitter:image" content="http://joshua-hw.github.io/2016/09/10/data_structure/data_logic_structure.jpg">
 
 
 
@@ -145,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://joshua-hw.github.io/2016/11/12/how_to_design_a_language/"/>
+  <link rel="canonical" href="http://joshua-hw.github.io/2016/09/10/data_structure/"/>
 
 
 
 
 
-  <title> 如何设计一门语言 | Joshua's Blog </title>
+  <title> 数据的逻辑结构和存储结构 | Joshua's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -197,7 +193,7 @@
     </a>
   </div>
     
-      <p class="site-subtitle"></p>
+      <p class="site-subtitle">世界很大, 未来很长</p>
     
 </div>
 
@@ -317,7 +313,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://joshua-hw.github.io/2016/11/12/how_to_design_a_language/">
+  <link itemprop="mainEntityOfPage" href="http://joshua-hw.github.io/2016/09/10/data_structure/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Joshua">
@@ -341,7 +337,7 @@
             
             
               
-                如何设计一门语言
+                数据的逻辑结构和存储结构
               
             
           </h1>
@@ -356,8 +352,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-12T22:30:00+08:00">
-                2016-11-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-10T20:00:00+08:00">
+                2016-09-10
               </time>
             
 
@@ -379,8 +375,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/arch/" itemprop="url" rel="index">
-                    <span itemprop="name">arch</span>
+                  <a href="/categories/foundation/" itemprop="url" rel="index">
+                    <span itemprop="name">foundation</span>
                   </a>
                 </span>
 
@@ -397,8 +393,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/11/12/how_to_design_a_language/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/12/how_to_design_a_language/" itemprop="commentCount"></span>
+                <a href="/2016/09/10/data_structure/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/10/data_structure/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -408,7 +404,7 @@
 
           
           
-             <span id="/2016/11/12/how_to_design_a_language/" class="leancloud_visitors" data-flag-title="如何设计一门语言">
+             <span id="/2016/09/10/data_structure/" class="leancloud_visitors" data-flag-title="数据的逻辑结构和存储结构">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -435,19 +431,26 @@
       
 
       
-        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
-<li><a href="http://www.cppblog.com/vczh/archive/2013/04/27/199765.html" target="_blank" rel="external">如何设计一门语言（一）——什么是坑(a)</a></li>
-<li><a href="http://www.cppblog.com/vczh/archive/2013/04/28/199805.html" target="_blank" rel="external">如何设计一门语言（二）——什么是坑(b)</a></li>
-<li><a href="http://www.cppblog.com/vczh/archive/2013/05/05/199974.html" target="_blank" rel="external">如何设计一门语言（三）——什么是坑(面向对象和异常处理)</a></li>
-<li><a href="http://www.cppblog.com/vczh/archive/2013/05/12/200195.html" target="_blank" rel="external">如何设计一门语言（四）——什么是坑(操作模板)</a></li>
-<li><a href="http://www.cppblog.com/vczh/archive/2013/05/25/200580.html" target="_blank" rel="external">如何设计一门语言（五）——面向对象和消息发送</a></li>
-<li><a href="http://www.cppblog.com/vczh/archive/2013/06/10/200920.html" target="_blank" rel="external">如何设计一门语言（六）——exception和error code</a></li>
-<li><a href="http://www.cppblog.com/vczh/archive/2013/07/05/201541.html" target="_blank" rel="external">如何设计一门语言（七）——闭包、lambda和interface</a></li>
-<li><a href="http://www.cppblog.com/vczh/archive/2013/07/27/202154.html" target="_blank" rel="external">如何设计一门语言（八）——异步编程和CPS变换</a></li>
-<li><a href="http://www.cppblog.com/vczh/archive/2013/08/17/202605.html" target="_blank" rel="external">如何设计一门语言（九）——类型</a></li>
-<li><a href="http://www.cppblog.com/vczh/archive/2013/09/16/203249.html" target="_blank" rel="external">如何设计一门语言（十）——正则表达式与领域特定语言（DSL）</a></li>
-<li><a href="http://www.cppblog.com/vczh/archive/2013/10/19/203819.html" target="_blank" rel="external">如何设计一门语言（十一）——删减语言的功能</a></li>
-<li><a href="http://www.cppblog.com/vczh/archive/2013/11/10/204189.html" target="_blank" rel="external">如何设计一门语言（十二）——设计可扩展的类型</a></li>
+        <h2 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h2><p>逻辑结构是指数据元素之间的逻辑关系，即从逻辑关系上描述数据。它与数据的存储无关，是独立于计算机的。数据的逻辑结构分为线性结构和非线性结构，线性表是典型的线性结构；集合、树和图是典型的非线性结构。</p>
+<p>数据的逻辑结构分类见图。</p>
+<p><img src="/2016/09/10/data_structure/data_logic_structure.jpg" alt="data_logic_structure.jpg"></p>
+<ul>
+<li>集合结构中的数据元素之间除了 “同属于一个集合”的关系外，别无其他关系。</li>
+<li>线性结构结构中的数据元素之间只存在一对一的关系。</li>
+<li>树形结构结构中的数据元素之间存在一对多的关系。</li>
+<li>图状结构或网状结构结构中的数据元素之间存在多对多的关系。</li>
+</ul>
+<h2 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h2><p>存储结构是指数据结构在计算机中的表示（又称映像），也称物理结构。它包括数据元素的表示和关系的表示。数据的存储结构是逻辑结构用计算机语言的实现，它依赖于计算机语言。</p>
+<p>数据的存储结构主要有：顺序存储、链式存储、索引存储和散列存储。</p>
+<ul>
+<li><p>顺序存储：把逻辑上相邻的元素存储在物理位置上也相邻的存储单元里，元素之间的关系由存储单元的邻接关系来体现。其优点是可以实现随机存取，每个元素占用最少的存储空间；缺点是只能使用相邻的一整块存储单元，因此可能产生较多的外部碎片。</p>
+</li>
+<li><p>链式存储：不要求逻辑上相邻的元素在物理位置上也相邻，借助指示元素存储地址的指针表示元素之间的逻辑关系。其优点是不会出现碎片现象，充分利用所有存储单元；缺点是每个元素因存储指针而占用额外的存储空间，并且只能实现顺序存取。</p>
+</li>
+<li><p>索引存储：在存储元素信息的同时，还建立附加的索引表。索引表中的每一项称为索引项，索引项的一般形式是：（关键字，地址）。其优点是检索速度快；缺点是增加了附加的索引表，会占用较多的存储空间。另外，在增加和删除数据时要修改索引表，因而会花费较多的时间。</p>
+</li>
+<li><p>散列存储：根据元素的关键字直接计算出该元素的存储地址，又称为Hash存储。其优点是检索、增加和删除结点的操作都很快；缺点是如果散列函数不好可能出现元素存储单元的冲突，而解决冲突会增加时间和空间开销。</p>
+</li>
 </ul>
 
       
@@ -472,7 +475,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/arch/" rel="tag"># arch</a>
+            <a href="/tags/foundation/" rel="tag"># foundation</a>
           
         </div>
       
@@ -481,8 +484,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/02/disaster_recovery/" rel="next" title="关于灾备">
-                <i class="fa fa-chevron-left"></i> 关于灾备
+              <a href="/2016/09/05/ab-testing/" rel="next" title="AB Test">
+                <i class="fa fa-chevron-left"></i> AB Test
               </a>
             
           </div>
@@ -491,8 +494,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/14/interview/" rel="prev" title="技术人员招聘指南">
-                技术人员招聘指南 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/09/29/mq_back_up/" rel="prev" title="消息补偿">
+                消息补偿 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -519,8 +522,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/12/how_to_design_a_language/"
-           data-title="如何设计一门语言" data-url="http://joshua-hw.github.io/2016/11/12/how_to_design_a_language/">
+      <div class="ds-thread" data-thread-key="2016/09/10/data_structure/"
+           data-title="数据的逻辑结构和存储结构" data-url="http://joshua-hw.github.io/2016/09/10/data_structure/">
       </div>
     
   </div>
@@ -560,7 +563,7 @@
                src="https://avatars1.githubusercontent.com/u/2180875?v=3&u=669f9a2b4e195cb7d1336a0dc4fa4efccaeba38c&s=400"
                alt="Joshua" />
           <p class="site-author-name" itemprop="name">Joshua</p>
-          <p class="site-description motion-element" itemprop="description">世界很大,未来很长!</p>
+          <p class="site-description motion-element" itemprop="description"></p>
         </div>
         <nav class="site-state motion-element">
         
@@ -576,7 +579,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -585,7 +588,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -620,7 +623,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑结构"><span class="nav-number">1.</span> <span class="nav-text">逻辑结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储结构"><span class="nav-number">2.</span> <span class="nav-text">存储结构</span></a></li></ol></div>
             
 
           </div>

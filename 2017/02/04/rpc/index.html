@@ -84,27 +84,28 @@
 
 
 
-<meta name="description" content="Best Ref: 性能调优攻略
-基本知识性能测试性能测试，是通过自动化的测试工具模拟多种正常、峰值以及异常负载条件来对系统的各项性能指标进行测试。区别于压力测试,在于压力测试要求进行超过规定性能指标的测试。
-性能测试的目标为公司交易的主链路，包括外卖平台,商户平台,开放平台,大物流,EOS订单业务,新支付,ERS餐厅业务等。
-测试基本过程框架测试团队创建测试用户，测试餐厅，使用测试框架(jmet">
+<meta name="description" content="RPC框架概念RPC，即远程过程调用，说得通俗一点就是：调用远程计算机上的服务，就像调用本地服务一样。RPC框架是SOA架构的重要基石。
+IO模型衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选择，至关重要。不同的网络IO模型，在高并发的状态下，处理性能上会有很大的差别。如Thrift提供支持以下IO模型的server实现:
+
+单线程阻塞式IO服务模型 - TSimpleServer
+多">
 <meta property="og:type" content="article">
-<meta property="og:title" content="全链路性能测试 & 性能分析">
-<meta property="og:url" content="http://joshua-hw.github.io/2016/09/21/load-testing-and-performance/index.html">
+<meta property="og:title" content="RPC框架 & 服务治理">
+<meta property="og:url" content="http://joshua-hw.github.io/2017/02/04/rpc/index.html">
 <meta property="og:site_name" content="Joshua's Blog">
-<meta property="og:description" content="Best Ref: 性能调优攻略
-基本知识性能测试性能测试，是通过自动化的测试工具模拟多种正常、峰值以及异常负载条件来对系统的各项性能指标进行测试。区别于压力测试,在于压力测试要求进行超过规定性能指标的测试。
-性能测试的目标为公司交易的主链路，包括外卖平台,商户平台,开放平台,大物流,EOS订单业务,新支付,ERS餐厅业务等。
-测试基本过程框架测试团队创建测试用户，测试餐厅，使用测试框架(jmet">
-<meta property="og:image" content="http://joshua-hw.github.io/2016/09/21/load-testing-and-performance/linux_observability_tools.png">
-<meta property="og:updated_time" content="2017-01-26T07:14:48.000Z">
+<meta property="og:description" content="RPC框架概念RPC，即远程过程调用，说得通俗一点就是：调用远程计算机上的服务，就像调用本地服务一样。RPC框架是SOA架构的重要基石。
+IO模型衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选择，至关重要。不同的网络IO模型，在高并发的状态下，处理性能上会有很大的差别。如Thrift提供支持以下IO模型的server实现:
+
+单线程阻塞式IO服务模型 - TSimpleServer
+多">
+<meta property="og:updated_time" content="2017-03-07T13:31:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="全链路性能测试 & 性能分析">
-<meta name="twitter:description" content="Best Ref: 性能调优攻略
-基本知识性能测试性能测试，是通过自动化的测试工具模拟多种正常、峰值以及异常负载条件来对系统的各项性能指标进行测试。区别于压力测试,在于压力测试要求进行超过规定性能指标的测试。
-性能测试的目标为公司交易的主链路，包括外卖平台,商户平台,开放平台,大物流,EOS订单业务,新支付,ERS餐厅业务等。
-测试基本过程框架测试团队创建测试用户，测试餐厅，使用测试框架(jmet">
-<meta name="twitter:image" content="http://joshua-hw.github.io/2016/09/21/load-testing-and-performance/linux_observability_tools.png">
+<meta name="twitter:title" content="RPC框架 & 服务治理">
+<meta name="twitter:description" content="RPC框架概念RPC，即远程过程调用，说得通俗一点就是：调用远程计算机上的服务，就像调用本地服务一样。RPC框架是SOA架构的重要基石。
+IO模型衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选择，至关重要。不同的网络IO模型，在高并发的状态下，处理性能上会有很大的差别。如Thrift提供支持以下IO模型的server实现:
+
+单线程阻塞式IO服务模型 - TSimpleServer
+多">
 
 
 
@@ -132,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://joshua-hw.github.io/2016/09/21/load-testing-and-performance/"/>
+  <link rel="canonical" href="http://joshua-hw.github.io/2017/02/04/rpc/"/>
 
 
 
 
 
-  <title> 全链路性能测试 & 性能分析 | Joshua's Blog </title>
+  <title> RPC框架 & 服务治理 | Joshua's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -184,7 +185,7 @@
     </a>
   </div>
     
-      <p class="site-subtitle"></p>
+      <p class="site-subtitle">世界很大, 未来很长</p>
     
 </div>
 
@@ -304,7 +305,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://joshua-hw.github.io/2016/09/21/load-testing-and-performance/">
+  <link itemprop="mainEntityOfPage" href="http://joshua-hw.github.io/2017/02/04/rpc/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Joshua">
@@ -328,7 +329,7 @@
             
             
               
-                全链路性能测试 & 性能分析
+                RPC框架 & 服务治理
               
             
           </h1>
@@ -343,8 +344,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-21T17:00:00+08:00">
-                2016-09-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-04T20:00:00+08:00">
+                2017-02-04
               </time>
             
 
@@ -384,8 +385,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/09/21/load-testing-and-performance/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/21/load-testing-and-performance/" itemprop="commentCount"></span>
+                <a href="/2017/02/04/rpc/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/04/rpc/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -395,7 +396,7 @@
 
           
           
-             <span id="/2016/09/21/load-testing-and-performance/" class="leancloud_visitors" data-flag-title="全链路性能测试 & 性能分析">
+             <span id="/2017/02/04/rpc/" class="leancloud_visitors" data-flag-title="RPC框架 & 服务治理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -422,104 +423,68 @@
       
 
       
-        <p>Best Ref: <strong><em><a href="http://coolshell.cn/articles/7490.html" target="_blank" rel="external">性能调优攻略</a></em></strong></p>
-<h2 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h2><h3 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h3><p><code>性能测试</code>，是通过自动化的测试工具模拟多种正常、峰值以及异常负载条件来对系统的各项性能指标进行测试。区别于<code>压力测试</code>,在于压力测试要求进行超过规定性能指标的测试。</p>
-<p>性能测试的目标为公司交易的主链路，包括<code>外卖平台</code>,<code>商户平台</code>,<code>开放平台</code>,<code>大物流</code>,<code>EOS订单业务</code>,<code>新支付</code>,<code>ERS餐厅业务</code>等。</p>
-<h3 id="测试基本过程"><a href="#测试基本过程" class="headerlink" title="测试基本过程"></a>测试基本过程</h3><p>框架测试团队创建测试用户，测试餐厅，使用测试框架(jmeter)脚本模拟<code>用户下单</code>，<code>餐厅接单</code>，并且对中间<code>支付</code>，<code>物流</code>环节mock。从而对下单到配送的全链路进行性能测试。</p>
-<p>性能测试和生产流程的差异如下:</p>
+        <h2 id="RPC框架"><a href="#RPC框架" class="headerlink" title="RPC框架"></a>RPC框架</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p><code>RPC</code>，即远程过程调用，说得通俗一点就是：调用远程计算机上的服务，就像调用本地服务一样。RPC框架是SOA架构的重要基石。</p>
+<h3 id="IO模型"><a href="#IO模型" class="headerlink" title="IO模型"></a>IO模型</h3><p>衡量一个RPC框架性能的好坏与否，RPC的网络IO模型的选择，至关重要。不同的网络IO模型，在高并发的状态下，处理性能上会有很大的差别。如Thrift提供支持以下IO模型的server实现:</p>
 <ul>
-<li>支付mock: 在调用支付的接口时，调用方使用特殊的merchant_id=101。测试团队mock支付调用的第三方服务，返回支付成功或者失败的结果。请求流程为 soa =&gt; payment =&gt; mock service(mock第三方支付服务)</li>
-<li>物流特殊处理: 正常情况下，在订单确认之后，只要餐厅购买了配送服务，就会进入物流，不过物流加了一层控制，可以把这些订单过滤掉。目前平台有20k的餐厅，专门用来压测，这些压测订单的物流会忽略</li>
+<li>单线程阻塞式IO服务模型 - <code>TSimpleServer</code></li>
+<li>多线程阻塞式IO服务模型 - <code>TThreadPoolServer</code></li>
+<li>非阻塞式IO服务模型 - <code>TNonblockingServer</code></li>
+<li>半同步半异步的服务模型 - <code>THsHaServer</code></li>
+<li>多线程半同步半异步的服务模型 - <code>TThreadedSelectorServer</code></li>
 </ul>
-<p>测试接口的调用，调用比率均通过分析对应服务集群的日志来确定。</p>
-<h3 id="测试团队相关知识"><a href="#测试团队相关知识" class="headerlink" title="测试团队相关知识"></a>测试团队相关知识</h3><p><a href="http://wiki.ele.to:8090/pages/viewpage.action?pageId=20324754" target="_blank" rel="external">业务部门性能测试</a></p>
-<h2 id="测试准备"><a href="#测试准备" class="headerlink" title="测试准备"></a>测试准备</h2><p>测试前，noc会进行以下操作: 开店</p>
-<p>首页banner，皮肤，自动关店，hermes，base.hermes降级，支付mock开关打开</p>
-<h2 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h2><p>测试过程中需要对业务相关指标进行监控，PTS主要包括以下业务</p>
-<h3 id="zeus-eos"><a href="#zeus-eos" class="headerlink" title="zeus.eos"></a>zeus.eos</h3><p>需要注意以下指标:</p>
+<a id="more"></a>
+<h3 id="Serialization-amp-Deserialization"><a href="#Serialization-amp-Deserialization" class="headerlink" title="Serialization &amp; Deserialization"></a>Serialization &amp; Deserialization</h3><p>另外一个衡量RPC框架性能的标准，就是传输协议。通讯协议约定了RPC请求中<code>client</code>和<code>server</code>的通讯方式，序列化和反序列化属于通讯协议的一部分，是设计RPC框架时一个重要的考虑因素。在选择序列化/反序列化方式时通常需要考虑以下几个方面:</p>
 <ul>
-<li><a href="https://t.elenet.me/dashboard/dashboard/db/eos-guan-jian-diao-yong-zhi-biao" target="_blank" rel="external">eos关键调用指标</a>, 主要用于监控主流程相关接口指标</li>
-<li><a href="https://t.elenet.me/dashboard/dashboard/db/eos-xiang-guan-guan-jian-zhong-yao-zhi-biao" target="_blank" rel="external">eos相关关键指标</a>，主要用于监控cache，async task,txdaemon执行情况</li>
-<li><a href="https://t.elenet.me/dashboard/dashboard/db/eos-jie-kou-zong-ti-zhi-biao" target="_blank" rel="external">eos接口总体指标</a>，主要用于对接口总体情况有一个大致的了解</li>
-</ul>
-<p>监控需要结合eos主流程来分析问题，EOS主流程如下:</p>
-<p><strong><em>涉密不予提供</em></strong></p>
-<p>同时需要了解EOS状态机各节点的含义和流转逻辑。</p>
-<h3 id="osc-bacchus"><a href="#osc-bacchus" class="headerlink" title="osc.bacchus"></a>osc.bacchus</h3><p>订单催单/取消订单服务，对应监控面板: <a href="https://t.elenet.me/dashboard/dashboard/db/osc-bacchus" target="_blank" rel="external">osc.bacchus</a></p>
-<p>主要关注自动取消订单(<code>hitcount(stats.apps.osc.bacchus.real_cancel_order, &#39;60s&#39;)</code>) 和 自动关店(<code>hitcount(stats.apps.osc.bacchus.real_close_restaurant, &#39;60s&#39;)</code>) 的指标</p>
-<h3 id="osc-chronos"><a href="#osc-chronos" class="headerlink" title="osc.chronos"></a>osc.chronos</h3><p>准时达服务，对应监控面板: <a href="https://t.elenet.me/dashboard/dashboard/db/osc-chronos-zhun-shi-da-jian-kong-kan-ban" target="_blank" rel="external">osc.chronos</a></p>
-<p>主要的关注目标chronos的队列消息情况，osc.chronos会有最大700k的unack量，其他两个队列是监听blink和eos的消息，可以查看是否有堆积。<br>另外可以关注chronos的机器负载情况，是否有负载过高的情形</p>
-<h3 id="osc-blink"><a href="#osc-blink" class="headerlink" title="osc.blink"></a>osc.blink</h3><p>物流对接服务，对应监控面板: <a href="https://t.elenet.me/dashboard/dashboard/db/blink" target="_blank" rel="external">osc.blink</a></p>
-<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><h3 id="业务问题分析"><a href="#业务问题分析" class="headerlink" title="业务问题分析"></a>业务问题分析</h3><p>前提在于<strong>要对订单主流程熟悉</strong>。由于订单连接了<code>外卖平台</code>,<code>商户平台</code>,<code>大物流</code>,<code>支付</code>，所以当主流程(包括EOS和其他方)出现问题时，一般会反映在<a href="https://t.elenet.me/dashboard/dashboard/db/eos-guan-jian-diao-yong-zhi-biao?from=now-30m&amp;to=now&amp;panelId=43&amp;fullscreen" target="_blank" rel="external">订单实际状态扭转</a>上，可以据此并结合EOS自身的关键流程接口相关指标确认出问题的业务方。</p>
-<h3 id="技术问题分析"><a href="#技术问题分析" class="headerlink" title="技术问题分析"></a>技术问题分析</h3><p>可以借助用来分析的工具包括<a href="https://t.elenet.me/dashboard/" target="_blank" rel="external">grafana</a>,<a href="http://etrace.elenet.me/" target="_blank" rel="external">etrace</a>,<a href="http://elk.elenet.me/" target="_blank" rel="external">elk</a>，特殊情况也可以直接登陆服务器通过log,分析工具htop,perf,tcpdump等进行分析</p>
-<p>进行性能分析前，需要了解EOS的架构: <a href="http://wiki.ele.to:8090/pages/viewpage.action?pageId=26612648" target="_blank" rel="external">eos架构</a></p>
-<p>基础服务指标监控如下:</p>
-<ul>
-<li>corvus &amp; redis</li>
-</ul>
-<p>redis监控地址: <a href="https://t.elenet.me/dashboard/dashboard/db/system-monitor-redis-cluster" target="_blank" rel="external">system-monitor-redis-cluster</a>，需要关注的指标包括<code>input</code>,<code>ops</code>,<code>slow commands</code>,<code>hit</code>,<code>miss</code>等</p>
-<p>eos使用的redis包括:</p>
-<pre><code>- zeus_eos_redis_cache:
-    - 端口: 8604 
-    - 作用: db_cache, patch_cache
-- eos_zeus_redis_cache:
-    - 端口: 8125 
-    - 作用: api_cache
-- eos_zeus_other_redis_cache:
-    - 端口: 8147 
-    - 作用: lock_param, rst_number_cache
-</code></pre><p>由于redis的网络流程为: <code>client =&gt; goproxy =&gt; corvus</code>，redis的性能排查应该是从上往下逐级进行, corvus对应的监控地址为: <a href="https://t.elenet.me/dashboard/dashboard/db/esm-corvus-cluster?var-cluster=eos_zeus_other_redis_cache&amp;var-machine=xg-zeus-eos-redis-1&amp;from=now-30m&amp;to=now" target="_blank" rel="external">esm.corvus.cluster</a></p>
-<ul>
-<li>rmq</li>
-</ul>
-<p>rabbitmq监控地址: <a href="https://t.elenet.me/dashboard/dashboard/db/system-monitor-rabbitmq-queue" target="_blank" rel="external">system-monitor-rabbitmq-queue</a>，需要关注的指标包括ready, publish, ack情况等</p>
-<ul>
-<li>dal &amp; db</li>
-</ul>
-<p>dal和db的监控可以使用etrace，对应地址如下: <a href="http://etrace.elenet.me/main2.html#/dal/sql" target="_blank" rel="external">etrace dal</a> eos对应的group包括:</p>
-<pre><code>- eos_mobile_eleme-zeus_eos_group
-- eos_items_eleme-zeus_eos_group
-- eos_eleme-zeus_eos_group
-- eos_record_eleme-zeus_eos_group
-</code></pre><p>同时DAL会关注dal相关指标:</p>
-<p><a href="https://t.elenet.me/dashboard/dashboard/db/dalxing-neng-zhi-biao-xg?var-group=eos_eleme-zeus_eos_group&amp;var-group=login_eleme-biz_member_group" target="_blank" rel="external">dal性能指标</a></p>
-<p>grafana切换到dal，对应的<a href="https://t.elenet.me/dashboard/dashboard/db/system-monitor" target="_blank" rel="external">dal-proxy服务器性能指标</a></p>
-<p>DBA会关注对应的DB服务器性能指标，慢SQL，lock等</p>
-<ul>
-<li>应用服务器</li>
-</ul>
-<p>应用服务器的监控在: <a href="https://t.elenet.me/dashboard/dashboard/db/system-monitor-all" target="_blank" rel="external">system.monitor.all</a>，主要关注服务器的<code>CPU Util</code>,<code>Memory</code>,<code>Network</code>和<code>IO</code>等</p>
-<p>EOS对应的集群分布为:</p>
-<pre><code>- 外卖平台: sync-01, sync-02
-- 新支付: sync-01
-- 商户端: sync-03
-- misc: sync-04
-- 异步task: async
-- script,txdaemon: cron
-</code></pre><p>更详细的TCP监控在<a href="https://t.elenet.me/dashboard/dashboard/db/system-monitor-net-tcp?var-machine=qcr-zeus-eos-async-19&amp;var-machine=qcr-zeus-eos-async-20&amp;var-machine=qcr-zeus-eos-sync1-11&amp;var-machine=xg-dtcase-master-01&amp;from=now-12h&amp;to=now" target="_blank" rel="external">system.monitor.net.tcp</a>，可以在这里看tcp的连接情况</p>
-<h4 id="性能分析的推荐步骤"><a href="#性能分析的推荐步骤" class="headerlink" title="性能分析的推荐步骤"></a>性能分析的推荐步骤</h4><p>性能分析的一般步骤为根据调用链路逐级住下，流程为: 接口 =&gt; 中间件 =&gt; 基础服务 =&gt; 操作系统</p>
-<ul>
-<li>接口性能分析时需要关注代码逻辑和接口依赖<ul>
-<li>代码的性能分析可以参考: <strong><em><a href="http://coolshell.cn/articles/7490.html" target="_blank" rel="external">性能调优攻略</a></em></strong>，以下为Python的代码性能优化参考<ul>
-<li>Python profile<ul>
-<li><a href="https://segmentfault.com/a/1190000000616798" target="_blank" rel="external">Python 性能分析入门指南</a></li>
-<li><a href="http://chenxiaoyu.org/2013/08/28/python-profile.html" target="_blank" rel="external">Python Profile 工具性能分析</a></li>
+<li>通用性<ul>
+<li>技术层面: 序列化协议是否支持跨平台、跨语言。</li>
+<li>流行程度: 这通常意味着学习成本的高低和是否有足够的社区支持 </li>
 </ul>
 </li>
-<li>Python 火焰图<ul>
-<li><a href="http://huoding.com/2016/08/18/531" target="_blank" rel="external">白话火焰图</a> </li>
-<li><a href="http://xiaorui.cc/2015/10/22/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E4%B9%8B%E8%B0%83%E8%AF%95python%E5%BA%94%E7%94%A8%E7%94%9F%E6%88%90%E6%80%A7%E8%83%BDcpu%E7%81%AB%E7%84%B0%E5%9B%BE/" target="_blank" rel="external">开源项目之调试python应用生成性能cpu火焰图</a>    </li>
+<li>强健性<ul>
+<li>协议的强健性依赖于大量而全面的测试，对于致力于提供高质量服务的系统，采用处于测试阶段的序列化协议会带来很高的风险。</li>
+</ul>
+</li>
+<li>可读性<ul>
+<li>序列化和反序列化的数据正确性和业务正确性的调试往往需要很长的时间，良好的调试机制会大大提高开发效率。这方面<code>文本流</code>比<code>二进制流</code>有明显的优点。</li>
+</ul>
+</li>
+<li>性能      <ul>
+<li>主要在于<code>空间开销</code>(传输的数据量)和<code>时间开销</code>(序列化和反序列化时的CPU消耗)</li>
+</ul>
+</li>
+<li>可扩展性<ul>
+<li>好的序列化协议应该对于业务的扩展支持友好</li>
 </ul>
 </li>
 </ul>
-</li>
-<li>接口依赖包括其他SOA服务依赖，基础服务依赖等，可以通过etrace观察调用链路分析瓶颈点</li>
+<p>主要的序列化/反序列化技术选型有以下几种:   </p>
+<h4 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h4><h5 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h5><p>XML是一种常用的序列化和反序列化协议，具有跨机器，跨语言等优点。webservice就完全基于XML通讯。可读性强，但是性能较差。异构系统，open api类型的应用中常用。</p>
+<h5 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h5><p>将对象转换成JSON结构化字符串。在http协议下，这是常用的方案，具备Javascript的先天性支持。JSON可读性强，利于调试和排错，但是性能稍差。</p>
+<h4 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h4><h5 id="thrift"><a href="#thrift" class="headerlink" title="thrift"></a>thrift</h5><p>Thrift并不仅仅是序列化协议，而是一个RPC框架。Thrift在空间开销和解析性能上有了比较大的提升。Thrift框架本身并没有透出序列化和反序列化接口，这导致其很难和其他传输层协议共同使用</p>
+<h5 id="Avro"><a href="#Avro" class="headerlink" title="Avro"></a>Avro</h5><p>Avro在大数据存储（RPC数据交换，本地存储）时比较常用</p>
+<h5 id="protobuf"><a href="#protobuf" class="headerlink" title="protobuf"></a>protobuf</h5><p>Protobuf是一个纯粹的展示层协议，可以和各种传输层协议一起使用。它的主要问题在于其所支持的语言相对较少，另外由于没有绑定的标准底层传输层协议，在公司间进行传输层协议的调试工作相对麻烦。</p>
+<h5 id="各语言内置序列化-反序列化机制"><a href="#各语言内置序列化-反序列化机制" class="headerlink" title="各语言内置序列化/反序列化机制"></a>各语言内置序列化/反序列化机制</h5><p>使用python pickle, <a href="https://github.com/jobbole/awesome-java-cn#serialization" target="_blank" rel="external">java序列化库</a>等</p>
+<blockquote>
+<p>更多关于序列化和反序列化技术的对比，请参考: <a href="http://www.infoq.com/cn/articles/serialization-and-deserialization" target="_blank" rel="external">序列化和反序列化</a></p>
+</blockquote>
+<h3 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h3><p>笔者遇到的RPC框架的技术组合有以下几种:</p>
+<ul>
+<li><code>Java: protobuf + netty</code></li>
+<li><code>Java: json + netty</code></li>
+<li><code>Python: thrift + thriftpy + thrift_connector + gunicorn</code></li>
 </ul>
-</li>
-<li>中间件 和 基础服务 的性能主要通过对应的指标监控，观察对应的<code>cpu</code>,<code>memory</code>,<code>Network</code>,<code>IO</code>,<code>TCP</code>等</li>
-<li>操作系统级别的性能分析可以参考<a href="http://www.brendangregg.com/linuxperf.html" target="_blank" rel="external">Linux Performance</a></li>
-</ul>
-<p><img src="/2016/09/21/load-testing-and-performance/linux_observability_tools.png" alt="linux_observability_tools"></p>
+<blockquote>
+<p>thrift的相关库可以参考: <a href="https://github.com/eleme/thriftpy" target="_blank" rel="external">thriftpy</a>, <a href="https://github.com/facebook/swift" target="_blank" rel="external">swift</a></p>
+</blockquote>
+<h2 id="服务治理"><a href="#服务治理" class="headerlink" title="服务治理"></a>服务治理</h2><p>服务治理涵盖的内容很多，以下是服务治理的一些关键技术点</p>
+<h3 id="Service-Registry"><a href="#Service-Registry" class="headerlink" title="Service Registry"></a>Service Registry</h3><p>服务注册中心，是服务治理最重要的组件之一。本质上是为了解耦服务提供者和服务消费者。可以基于<code>ZooKeeper</code>或者<code>Etcd</code>实现一套服务注册机制。</p>
+<h3 id="LB"><a href="#LB" class="headerlink" title="LB"></a>LB</h3><p>有了服务注册中心后，就可以在client拿到服务全部的列表，则对应的负载均衡策略在RPC框架的client里面做就可以了。这避免了haproxy配置复杂和不能热加载的问题。</p>
+<h3 id="Config-Center"><a href="#Config-Center" class="headerlink" title="Config Center"></a>Config Center</h3><p>同样可以基于zookeeper实现服务不同环境(开发，测试，预发布，生产)的配置功能</p>
+<h3 id="CI-CD"><a href="#CI-CD" class="headerlink" title="CI/CD"></a>CI/CD</h3><p>可以基于<code>jenkins</code>和<code>docker</code>实现<a href="https://www.docker.com/use-cases/cicd" target="_blank" rel="external">持续集成</a>。服务的发布(灰度发布)同时需要一个完善的CMDB系统的存在</p>
+<h3 id="Log"><a href="#Log" class="headerlink" title="Log"></a>Log</h3><p>ELK是比较成熟的日志分析技术栈</p>
+<h3 id="Monitoring-amp-Alerting"><a href="#Monitoring-amp-Alerting" class="headerlink" title="Monitoring &amp; Alerting"></a>Monitoring &amp; Alerting</h3><p>关于监控和报警，请关注笔者的另外一篇文章: <a href="https://joshua-hw.github.io/2017/01/24/monitoring_and_alerting/">服务监控和报警</a></p>
+<h3 id="Trace"><a href="#Trace" class="headerlink" title="Trace"></a>Trace</h3><p>能够得到每一个调用的<code>调用链路</code>对于服务的分析有很大的辅助作用。trace系统的实现可以参考<a href="http://www.slideshare.net/terryice/eagleeye-with-taobaojavaone" target="_blank" rel="external">鹰眼下的淘宝_EagleEye with Taobao</a></p>
+<h3 id="限流，降级和熔断"><a href="#限流，降级和熔断" class="headerlink" title="限流，降级和熔断"></a>限流，降级和熔断</h3><p>这三者都是服务自我保护的利器，均可以依赖于服务注册及配置中心实现。</p>
 
       
     </div>
@@ -552,8 +517,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/05/ab-testing/" rel="next" title="AB Test">
-                <i class="fa fa-chevron-left"></i> AB Test
+              <a href="/2017/01/24/monitoring_and_alerting/" rel="next" title="服务监控和报警">
+                <i class="fa fa-chevron-left"></i> 服务监控和报警
               </a>
             
           </div>
@@ -562,8 +527,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/29/mq_back_up/" rel="prev" title="消息补偿">
-                消息补偿 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/24/rpc_framework/" rel="prev" title="RPC框架">
+                RPC框架 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -590,8 +555,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/21/load-testing-and-performance/"
-           data-title="全链路性能测试 & 性能分析" data-url="http://joshua-hw.github.io/2016/09/21/load-testing-and-performance/">
+      <div class="ds-thread" data-thread-key="2017/02/04/rpc/"
+           data-title="RPC框架 & 服务治理" data-url="http://joshua-hw.github.io/2017/02/04/rpc/">
       </div>
     
   </div>
@@ -631,7 +596,7 @@
                src="https://avatars1.githubusercontent.com/u/2180875?v=3&u=669f9a2b4e195cb7d1336a0dc4fa4efccaeba38c&s=400"
                alt="Joshua" />
           <p class="site-author-name" itemprop="name">Joshua</p>
-          <p class="site-description motion-element" itemprop="description">世界很大,未来很长!</p>
+          <p class="site-description motion-element" itemprop="description"></p>
         </div>
         <nav class="site-state motion-element">
         
@@ -647,7 +612,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -656,7 +621,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -691,7 +656,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本知识"><span class="nav-number">1.</span> <span class="nav-text">基本知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#性能测试"><span class="nav-number">1.1.</span> <span class="nav-text">性能测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试基本过程"><span class="nav-number">1.2.</span> <span class="nav-text">测试基本过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试团队相关知识"><span class="nav-number">1.3.</span> <span class="nav-text">测试团队相关知识</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试准备"><span class="nav-number">2.</span> <span class="nav-text">测试准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监控"><span class="nav-number">3.</span> <span class="nav-text">监控</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#zeus-eos"><span class="nav-number">3.1.</span> <span class="nav-text">zeus.eos</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#osc-bacchus"><span class="nav-number">3.2.</span> <span class="nav-text">osc.bacchus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#osc-chronos"><span class="nav-number">3.3.</span> <span class="nav-text">osc.chronos</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#osc-blink"><span class="nav-number">3.4.</span> <span class="nav-text">osc.blink</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题分析"><span class="nav-number">4.</span> <span class="nav-text">问题分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#业务问题分析"><span class="nav-number">4.1.</span> <span class="nav-text">业务问题分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#技术问题分析"><span class="nav-number">4.2.</span> <span class="nav-text">技术问题分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#性能分析的推荐步骤"><span class="nav-number">4.2.1.</span> <span class="nav-text">性能分析的推荐步骤</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RPC框架"><span class="nav-number">1.</span> <span class="nav-text">RPC框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IO模型"><span class="nav-number">1.2.</span> <span class="nav-text">IO模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Serialization-amp-Deserialization"><span class="nav-number">1.3.</span> <span class="nav-text">Serialization & Deserialization</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP"><span class="nav-number">1.3.1.</span> <span class="nav-text">HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#XML"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">XML</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JSON"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">JSON</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP"><span class="nav-number">1.3.2.</span> <span class="nav-text">TCP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#thrift"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">thrift</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Avro"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">Avro</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#protobuf"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">protobuf</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#各语言内置序列化-反序列化机制"><span class="nav-number">1.3.2.4.</span> <span class="nav-text">各语言内置序列化/反序列化机制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#技术选型"><span class="nav-number">1.4.</span> <span class="nav-text">技术选型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务治理"><span class="nav-number">2.</span> <span class="nav-text">服务治理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Service-Registry"><span class="nav-number">2.1.</span> <span class="nav-text">Service Registry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LB"><span class="nav-number">2.2.</span> <span class="nav-text">LB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Config-Center"><span class="nav-number">2.3.</span> <span class="nav-text">Config Center</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CI-CD"><span class="nav-number">2.4.</span> <span class="nav-text">CI/CD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Log"><span class="nav-number">2.5.</span> <span class="nav-text">Log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Monitoring-amp-Alerting"><span class="nav-number">2.6.</span> <span class="nav-text">Monitoring & Alerting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trace"><span class="nav-number">2.7.</span> <span class="nav-text">Trace</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#限流，降级和熔断"><span class="nav-number">2.8.</span> <span class="nav-text">限流，降级和熔断</span></a></li></ol></li></ol></div>
             
 
           </div>
