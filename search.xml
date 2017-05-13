@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[存储引擎]]></title>
-    <url>%2F2017%2F03%2F31%2Fstore_engine%2F</url>
-    <content type="text"><![CDATA[哈希(hash)索引B树(B Tree)索引LSM树索引Bitcask跳表(Skiplist)]]></content>
-      <categories>
-        <category>basic</category>
-      </categories>
-      <tags>
-        <tag>basic</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[我的技能树]]></title>
     <url>%2F2017%2F03%2F01%2Fskill_tree%2F</url>
     <content type="text"><![CDATA[以下为我的技能树: 请 在新标签页中打开链接 后放大观看 ^_^]]></content>
